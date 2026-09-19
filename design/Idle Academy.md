@@ -9,11 +9,19 @@ tags:
 Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 > [!info] Status
-> Only one skill exists so far: [[Meditation]].
+> Only one skill exists so far: [[Research]].
 
 ## Design notes
 
-- [[Meditation]] — the first skill, and the template every later skill copies.
+- [[Research]] — the first gathering skill, and the template every later
+  skill copies. Produces [[Notes]].
+
+## World
+
+> [!question] Steampunk academy — being designed
+> The setting is a **steampunk academy**. Still undecided: how magic and
+> machinery relate, and the tone (whimsical / scholarly / grim). Naming so
+> far leans **scholarly**: Research, Notes, Sketches.
 
 ## Game-wide rules
 
@@ -24,6 +32,9 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 - Mobile-first: the game is played on a phone.
 - Progress accrues only while the page is open and in the foreground.
 
-> [!warning] Placeholder names
-> Resource names are placeholders until named properly. Currently:
-> **Insight** (produced by [[Meditation]]).
+## Resources
+
+| Resource   | Produced by  | Status                                  |
+| ---------- | ------------ | --------------------------------------- |
+| [[Notes]]  | [[Research]] | Implemented                             |
+| Sketches   | —            | Proposed: output of a higher Research tier |

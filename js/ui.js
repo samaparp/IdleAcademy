@@ -28,7 +28,7 @@ const UI = {
       saveNotice: document.getElementById('save-notice'),
     };
 
-    const skill = CONFIG.skills.meditation;
+    const skill = CONFIG.skills.research;
     this.el.skillTitle.textContent = skill.name;
     this.el.actionLabel.textContent = skill.buttonLabel;
     this.el.maxLevel.textContent = String(skill.maxLevel);
@@ -126,7 +126,7 @@ const UI = {
   },
 
   render() {
-    const skill = CONFIG.skills.meditation;
+    const skill = CONFIG.skills.research;
     const progress = State.getSkill(skill.id);
     const maxed = Leveling.isMaxLevel(skill, progress.level);
     const needed = Leveling.xpForNextLevel(skill, progress.level);

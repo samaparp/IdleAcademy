@@ -18,27 +18,28 @@ const CONFIG = {
   /* ---- Save system ----------------------------------------------------- */
   save: {
     storageKey: 'idleacademy.save',
-    version: 1,
+    version: 2,
     autosaveMs: 5000,
   },
 
   /* ---- Resources ------------------------------------------------------- */
-  // "Insight" is a PLACEHOLDER resource name.
+  // Notes is the tier-1 Research output. Higher Research tiers are planned
+  // to yield higher-tier resources; not designed or implemented yet.
   resources: {
-    insight: { id: 'insight', name: 'Insight' },
+    notes: { id: 'notes', name: 'Notes' },
   },
 
   /* ---- Skills ---------------------------------------------------------- */
   skills: {
-    meditation: {
-      id: 'meditation',
-      name: 'Meditation',
-      buttonLabel: 'Meditate',
+    research: {
+      id: 'research',
+      name: 'Research',
+      buttonLabel: 'Research',
       // Length of one tick in ms at speed x1.
       tickMs: 1000,
       // Gains applied on every tick.
       xpPerTick: 10,
-      resourceId: 'insight',
+      resourceId: 'notes',
       resourcePerTick: 1,
       // Levelling.
       startLevel: 1,

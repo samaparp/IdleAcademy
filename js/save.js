@@ -49,11 +49,28 @@ const Save = {
 
   /*
    * Bring an older save up to CONFIG.save.version.
-   * Only version 1 exists so far, so there is nothing to migrate yet.
+   * Each step migrates one version forward, in order.
    */
   migrate(parsed) {
     if (!parsed || typeof parsed !== 'object') return null;
-    const version = Number(parsed.version) || 0;
+    let version = Number(parsed.version) || 0;
+
+    // v1 -> v2: the Meditation skill was renamed to Research and its
+    // Insight resource to Notes.
+    if (version < 2) {
+      if (parsed.skills && parsed.skills.meditation && !parsed.skills.research) {
+        parsed.skills.research = parsed.skills.meditation;
+        delete parsed.skills.meditation;
+      }
+      if (parsed.resources && 'insight' in parsed.resources && !('notes' in parsed.resources)) {
+        parsed.resources.notes = parsed.resources.insight;
+        delete parsed.resources.insight;
+      }
+      version = 2;
+    }
+
+    parsed.version = version;
+
     if (version > CONFIG.save.version) {
       console.warn('[save] save is from a newer version, loading as-is');
     }

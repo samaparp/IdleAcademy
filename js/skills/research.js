@@ -1,5 +1,5 @@
 /*
- * skills/meditation.js — the Meditation skill.
+ * skills/research.js — the Research skill.
  *
  * A skill module owns one thing: what happens on a tick. All numbers come
  * from CONFIG.skills.<id>. Add a new skill by copying this shape and
@@ -7,8 +7,8 @@
  * scripts are loaded in order from index.html).
  */
 
-const MeditationSkill = {
-  config: CONFIG.skills.meditation,
+const ResearchSkill = {
+  config: CONFIG.skills.research,
 
   // Called once per tick while the skill is active.
   // Returns a small summary the UI can react to.
@@ -25,7 +25,7 @@ const MeditationSkill = {
 
 const Skills = {
   registry: {
-    meditation: MeditationSkill,
+    research: ResearchSkill,
   },
 
   get(id) {
