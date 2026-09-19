@@ -25,43 +25,40 @@
   <main class="app-main">
     <p id="save-notice" class="notice" role="status" hidden></p>
 
-    <!-- Character: nothing designed yet. -->
+    <!-- Character: one field so far. -->
     <section class="panel" id="panel-character" role="tabpanel"
              aria-labelledby="tab-character" tabindex="0" hidden>
-      <p class="placeholder">Nothing here yet.</p>
-    </section>
+      <section class="card field">
+        <span class="field__label" id="name-label">Name</span>
 
-    <!-- Skill: one category so far, holding one skill. -->
-    <section class="panel" id="panel-skill" role="tabpanel"
-             aria-labelledby="tab-skill" tabindex="0">
-      <h2 class="category" id="category-title">Research</h2>
-
-      <section class="card skill" aria-labelledby="skill-title">
-        <div class="skill__head">
-          <h3 class="skill__title" id="skill-title">Study</h3>
-          <p class="skill__level">
-            Level <span class="skill__level-value" id="skill-level">1</span>
-            <span class="skill__level-max">/ <span id="skill-max-level">100</span></span>
-          </p>
+        <div class="field__row" id="name-display">
+          <span class="field__value" id="character-name">Hunter</span>
+          <button type="button" class="icon-button" id="name-edit-button"
+                  aria-label="Edit name">
+            <span aria-hidden="true">&#9998;&#65038;</span>
+          </button>
         </div>
 
-        <button type="button" class="action" id="skill-action" aria-pressed="false">
-          <span class="action__fill" id="skill-tick-fill" aria-hidden="true"></span>
-          <span class="action__label" id="skill-action-label">Study</span>
-        </button>
-
-        <div class="xp">
-          <div class="bar" role="img" aria-labelledby="skill-xp-text">
-            <div class="bar__fill" id="skill-xp-fill"></div>
-          </div>
-          <p class="xp__text" id="skill-xp-text">0 / 10 XP</p>
-        </div>
-
-        <div class="resource">
-          <span class="resource__name" id="resource-name">Notes</span>
-          <span class="resource__value" id="resource-value">0</span>
+        <div class="field__row" id="name-edit" hidden>
+          <input class="field__input" id="name-input" type="text"
+                 aria-labelledby="name-label" autocomplete="off"
+                 autocapitalize="words" spellcheck="false">
+          <button type="button" class="icon-button" id="name-save-button"
+                  aria-label="Save name">
+            <span aria-hidden="true">&#10003;</span>
+          </button>
+          <button type="button" class="icon-button" id="name-cancel-button"
+                  aria-label="Cancel">
+            <span aria-hidden="true">&#10005;</span>
+          </button>
         </div>
       </section>
+    </section>
+
+    <!-- Skill: skill cards are built from CONFIG by ui.js. -->
+    <section class="panel" id="panel-skill" role="tabpanel"
+             aria-labelledby="tab-skill" tabindex="0">
+      <div class="skill-list" id="skill-list"></div>
     </section>
 
     <!-- Settings: test tools live here for now. -->
@@ -87,7 +84,7 @@
   <script src="js/leveling.js"></script>
   <script src="js/state.js"></script>
   <script src="js/save.js"></script>
-  <script src="js/skills/study.js"></script>
+  <script src="js/skills/gathering.js"></script>
   <script src="js/engine.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/game.js"></script>

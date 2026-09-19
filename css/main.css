@@ -119,13 +119,102 @@ body {
   outline: none;
 }
 
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .category {
-  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 6px 0 0;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.category__count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Character field --------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.field__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field__row[hidden] { display: none; }
+
+.field__value {
+  flex: 1;
+  font-size: 1.35rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.field__input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.1rem;
+}
+
+.field__input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.icon-button {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-alt);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.icon-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .placeholder {
@@ -180,7 +269,6 @@ body {
   font-weight: 650;
 }
 
-.skill { margin-top: -4px; }
 
 .skill__level {
   margin: 0;
@@ -196,6 +284,29 @@ body {
 }
 
 .skill__level-max { color: var(--text-muted); }
+
+/* A locked skill shows that it exists and nothing else. */
+.skill--locked {
+  border-style: dashed;
+  background: transparent;
+}
+
+.skill--locked .skill__title {
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.skill__lock {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
 
 /* ---- Action button ---------------------------------------------------- */
 

@@ -13,6 +13,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Design notes
 
+- [[Character]] — who the player is, and the Character tab.
 - [[Research]] — the first skill category, and its tier ladder.
 - [[Study]] — tier 1 of [[Research]]. Produces [[Notes]].
 - [[Notes]] — the tier-1 resource.
@@ -24,42 +25,40 @@ Three tabs across the top of the page, mobile-first:
 
 | Tab           | Holds                                                          |
 | ------------- | -------------------------------------------------------------- |
-| **Character** | Nothing designed yet                                            |
+| **Character** | One field: Name, editable via a pencil button                   |
 | **Skill**     | Skills, grouped by category. The only category is [[Research]]  |
 | **Settings**  | Test tools for now                                              |
 
 > [!note] Assumptions
-> **Skill** opens by default, because it is the only tab with anything in
-> it. Test tools were moved into **Settings** as the obvious home; say if
-> they belong somewhere else.
+> **Skill** opens by default. Test tools live in **Settings**.
 
 ## The player
 
-> [!info] One skill at a time
-> The player is a lone **Hunter** — Van Helsing, roughly. One person, one
-> pair of hands, so **exactly one skill runs at a time**. Starting a skill
-> stops whatever was running.
->
-> This is a design commitment, not an implementation detail: it means the
-> game is about *choosing* what to work on, not about managing parallel
-> production lines.
+The player is a lone **Hunter** — see [[Character]]. The **mage** framing
+from the original brief has been **dropped**.
 
-> [!question] Open
-> The original framing was a **mage** academy. "Hunter" reframes the player
-> as a monster hunter who studies his quarry. Are these the same character,
-> or has the mage framing been dropped?
+> [!info] One skill at a time
+> One person, one pair of hands, so **exactly one skill runs at a time**.
+> Starting a skill stops whatever was running.
 
 ## Skill ladder
 
 Skill names are **verbs**; the button reads as the gerund while running
 (**Study** → **Studying**).
 
-| Category     | Tier | Skill      | Produces    | Status      |
-| ------------ | ---- | ---------- | ----------- | ----------- |
-| [[Research]] | 1    | [[Study]]  | [[Notes]]   | Implemented |
-| [[Research]] | 2    | Sketch     | Sketches    | Named only  |
-| [[Research]] | 3    | Draft      | Blueprints  | Named only  |
-| [[Research]] | 4    | Theorise   | Treatises   | Named only  |
+Every skill is **locked until something unlocks it**; only [[Study]] is open
+at the start. Locked skills stay visible as anonymous `???` slots, so the
+size of a category is never hidden.
+
+| Category     | Tier | Skill     | Produces   | State    |
+| ------------ | ---- | --------- | ---------- | -------- |
+| [[Research]] | 1    | [[Study]] | [[Notes]]  | Unlocked |
+| [[Research]] | 2    | Sketch    | Sketches   | Locked   |
+| [[Research]] | 3    | Draft     | Blueprints | Locked   |
+| [[Research]] | 4    | Theorise  | Treatises  | Locked   |
+
+> [!danger] No unlock rule exists yet
+> Nothing in the game can unlock a skill. See [[Research]].
 
 ## Game-wide rules
 
@@ -72,11 +71,14 @@ Skill names are **verbs**; the button reads as the gerund while running
 
 ## Resources
 
-| Resource  | Produced by | Status      |
-| --------- | ----------- | ----------- |
-| [[Notes]] | [[Study]]   | Implemented |
+| Resource   | Produced by | Status              |
+| ---------- | ----------- | ------------------- |
+| [[Notes]]  | [[Study]]   | Reachable           |
+| Sketches   | Sketch      | Behind a locked skill |
+| Blueprints | Draft       | Behind a locked skill |
+| Treatises  | Theorise    | Behind a locked skill |
 
-Nothing consumes [[Notes]] yet.
+Nothing consumes any of them yet.
 
 ## Planned
 

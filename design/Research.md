@@ -18,15 +18,31 @@ output resource.
 
 ## The ladder
 
-| Tier | Skill         | Produces        | Status          |
-| ---- | ------------- | --------------- | --------------- |
-| 1    | [[Study]]     | [[Notes]]       | Implemented     |
-| 2    | Sketch        | Sketches        | Named only      |
-| 3    | Draft         | Blueprints      | Named only      |
-| 4    | Theorise      | Treatises       | Named only      |
+| Tier | Skill        | Running    | Produces   | State    |
+| ---- | ------------ | ---------- | ---------- | -------- |
+| 1    | [[Study]]    | Studying   | [[Notes]]  | Unlocked |
+| 2    | Sketch       | Sketching  | Sketches   | Locked   |
+| 3    | Draft        | Drafting   | Blueprints | Locked   |
+| 4    | Theorise     | Theorising | Treatises  | Locked   |
 
-Tiers 2 to 4 have **names only**. No rates, unlock rules or design behind
-them yet.
+## Locked skills
+
+A locked skill is **visible but anonymous**. Its card shows `???` and a
+**Locked** chip, with no button, no level and no resource — so the player
+can see that Research holds four skills and that three are still closed,
+without learning what they are. The category heading carries the count
+(`1 / 4 unlocked`).
+
+> [!danger] Nothing can unlock them yet
+> Unlock rules are **not designed**. The flag is static config
+> (`unlocked: true/false`) and nothing in the game flips it, so tiers 2 to 4
+> stay locked permanently until a rule exists. `Skills.isUnlocked()` is the
+> single place that rule will go.
+
+> [!warning] Placeholder tuning
+> Tiers 2 to 4 carry **the same numbers as [[Study]]** — 1 second per tick,
+> 10 XP, 1 resource. They are unreachable, and inventing a curve for them
+> would look like a balance decision that has not been made.
 
 > [!note] Why the ladder reads this way
 > You scribble what you read, then draw what you scribbled, then make it
@@ -34,7 +50,10 @@ them yet.
 > one below it.
 
 > [!question] Open
-> - How each tier unlocks.
+> - **How each tier unlocks.** A level in the tier below, a quantity of its
+>   resource spent, or something else entirely.
 > - Whether lower tiers stay worth running once a higher one is available.
 > - Whether every tier uses the same tick length and XP rate, or slower
 >   ticks for richer output.
+> - Whether a locked skill should ever hint at what it is, or stay `???`
+>   until the moment it opens.

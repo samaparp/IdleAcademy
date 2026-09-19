@@ -18,15 +18,24 @@ const CONFIG = {
   /* ---- Save system ----------------------------------------------------- */
   save: {
     storageKey: 'idleacademy.save',
-    version: 3,
+    version: 4,
     autosaveMs: 5000,
   },
 
+  /* ---- Character ------------------------------------------------------- */
+  character: {
+    // PLACEHOLDER starting name, editable in the Character tab.
+    defaultName: 'Hunter',
+    maxNameLength: 24,
+  },
+
   /* ---- Resources ------------------------------------------------------- */
-  // Notes is the tier-1 Research output. Higher Research tiers are planned
-  // to yield higher-tier resources; not designed or implemented yet.
+  // One per rung of the Research ladder.
   resources: {
     notes: { id: 'notes', name: 'Notes' },
+    sketches: { id: 'sketches', name: 'Sketches' },
+    blueprints: { id: 'blueprints', name: 'Blueprints' },
+    treatises: { id: 'treatises', name: 'Treatises' },
   },
 
   /* ---- Skill categories ------------------------------------------------ */
@@ -38,11 +47,23 @@ const CONFIG = {
   },
 
   /* ---- Skills ---------------------------------------------------------- */
+  /*
+   * Order here is the order they appear in the Skill tab.
+   *
+   * `unlocked: false` means the skill is visible as a locked, unnamed slot.
+   * UNLOCK RULES ARE NOT DESIGNED YET — nothing in the game can flip these
+   * flags, so tiers 2 to 4 stay locked until a rule exists.
+   *
+   * PLACEHOLDER TUNING: tiers 2 to 4 deliberately carry the same numbers as
+   * Study. They are unreachable, and inventing a curve for them would look
+   * like a balance decision that has not been made.
+   */
   skills: {
     study: {
       id: 'study',
       name: 'Study',
       categoryId: 'research',
+      unlocked: true,
       // Skill names are verbs; the button reads as the gerund while running.
       buttonLabel: 'Study',
       buttonLabelActive: 'Studying',
@@ -59,6 +80,61 @@ const CONFIG = {
       // level * 10  ->  10, 20, 30, ... ; total to level 100 = 49,500 XP.
       xpForNextLevel: (level) => level * 10,
     },
+
+    sketch: {
+      id: 'sketch',
+      name: 'Sketch',
+      categoryId: 'research',
+      unlocked: false,
+      buttonLabel: 'Sketch',
+      buttonLabelActive: 'Sketching',
+      tickMs: 1000,
+      xpPerTick: 10,
+      resourceId: 'sketches',
+      resourcePerTick: 1,
+      startLevel: 1,
+      maxLevel: 100,
+      xpForNextLevel: (level) => level * 10,
+    },
+
+    draft: {
+      id: 'draft',
+      name: 'Draft',
+      categoryId: 'research',
+      unlocked: false,
+      buttonLabel: 'Draft',
+      buttonLabelActive: 'Drafting',
+      tickMs: 1000,
+      xpPerTick: 10,
+      resourceId: 'blueprints',
+      resourcePerTick: 1,
+      startLevel: 1,
+      maxLevel: 100,
+      xpForNextLevel: (level) => level * 10,
+    },
+
+    theorise: {
+      id: 'theorise',
+      name: 'Theorise',
+      categoryId: 'research',
+      unlocked: false,
+      buttonLabel: 'Theorise',
+      buttonLabelActive: 'Theorising',
+      tickMs: 1000,
+      xpPerTick: 10,
+      resourceId: 'treatises',
+      resourcePerTick: 1,
+      startLevel: 1,
+      maxLevel: 100,
+      xpForNextLevel: (level) => level * 10,
+    },
+  },
+
+  /* ---- UI text --------------------------------------------------------- */
+  ui: {
+    // Shown in place of a locked skill's name and button.
+    lockedSkillName: '???',
+    lockedSkillLabel: 'Locked',
   },
 
   /* ---- Test tools ------------------------------------------------------ */

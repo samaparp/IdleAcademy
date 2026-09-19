@@ -10,6 +10,7 @@ const State = {
     const state = {
       version: CONFIG.save.version,
       lastPlayed: Date.now(),
+      character: { name: CONFIG.character.defaultName },
       resources: {},
       skills: {},
     };
@@ -35,6 +36,10 @@ const State = {
 
     const out = fresh;
     out.lastPlayed = Number(state.lastPlayed) || Date.now();
+
+    if (state.character && typeof state.character.name === 'string') {
+      out.character.name = this.cleanName(state.character.name);
+    }
 
     if (state.resources) {
       for (const id of Object.keys(out.resources)) {
@@ -63,6 +68,23 @@ const State = {
     }
 
     return out;
+  },
+
+  /*
+   * Names are player-entered, so they are trimmed, length-capped, and fall
+   * back to the default rather than ever being empty.
+   */
+  cleanName(name) {
+    const trimmed = String(name).trim().slice(0, CONFIG.character.maxNameLength);
+    return trimmed || CONFIG.character.defaultName;
+  },
+
+  setName(name) {
+    this.current.character.name = this.cleanName(name);
+  },
+
+  getName() {
+    return this.current.character.name;
   },
 
   addResource(id, amount) {

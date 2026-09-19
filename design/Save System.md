@@ -22,7 +22,7 @@ How [[Idle Academy]] persists progress.
 - Migrations run on load, one version step at a time. Version 1 → 2 renamed
   the Meditation skill to Research and the Insight resource to [[Notes]];
   version 2 → 3 renamed that skill again to [[Study]], once Research became
-  the name of the category.
+  the name of the category; version 3 → 4 added the character's name.
 - Tuning lives in `js/config.js` under `CONFIG.save`.
 
 > [!warning] Not implemented

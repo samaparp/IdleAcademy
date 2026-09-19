@@ -79,6 +79,15 @@ const Save = {
       version = 3;
     }
 
+    // v3 -> v4: the character gained a name, and the Research ladder gained
+    // its three locked skills.
+    if (version < 4) {
+      if (!parsed.character || typeof parsed.character.name !== 'string') {
+        parsed.character = { name: CONFIG.character.defaultName };
+      }
+      version = 4;
+    }
+
     parsed.version = version;
 
     if (version > CONFIG.save.version) {

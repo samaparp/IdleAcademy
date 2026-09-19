@@ -73,7 +73,7 @@ and can be changed without touching game logic:
 ## Open questions
 
 > [!question] Still open
-> - **How does [[Sketch]] unlock?** A level in Study, a quantity of
+> - **How does Sketch unlock?** A level in Study, a quantity of
 >   [[Notes]] spent, or something else.
 > - **Does Study stay useful?** If Sketch strictly beats it, nothing is
 >   produced here after the switch and Study becomes dead content.
