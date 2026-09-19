@@ -17,6 +17,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 - [[Research]] — the first skill category, and its tier ladder.
 - [[Study]] — tier 1 of [[Research]]. Produces [[Notes]].
 - [[Notes]] — the tier-1 resource.
+- [[Quid]] — the currency. Named, not implemented.
 - [[Save System]] — how progress persists, and its limits.
 
 ## Screen layout
@@ -79,6 +80,9 @@ size of a category is never hidden.
 | Treatises  | Theorise    | Behind a locked skill |
 
 Nothing consumes any of them yet.
+
+The currency is **[[Quid]]**. Nothing earns or spends it, so it is not in
+the config yet.
 
 ## Planned
 
