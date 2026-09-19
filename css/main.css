@@ -243,13 +243,6 @@ body {
   background: rgba(255, 255, 255, 0.28);
 }
 
-.action.is-active .action__label::after {
-  content: " · active";
-  font-size: 0.8em;
-  font-weight: 500;
-  opacity: 0.85;
-}
-
 .action:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;

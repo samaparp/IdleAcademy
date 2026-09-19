@@ -1,5 +1,5 @@
 /*
- * skills/research.js — the Research skill.
+ * skills/study.js — the Study skill (tier 1 of the Research category).
  *
  * A skill module owns one thing: what happens on a tick. All numbers come
  * from CONFIG.skills.<id>. Add a new skill by copying this shape and
@@ -7,8 +7,8 @@
  * scripts are loaded in order from index.html).
  */
 
-const ResearchSkill = {
-  config: CONFIG.skills.research,
+const StudySkill = {
+  config: CONFIG.skills.study,
 
   // Called once per tick while the skill is active.
   // Returns a small summary the UI can react to.
@@ -25,7 +25,7 @@ const ResearchSkill = {
 
 const Skills = {
   registry: {
-    research: ResearchSkill,
+    study: StudySkill,
   },
 
   get(id) {

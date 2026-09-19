@@ -20,7 +20,9 @@ How [[Idle Academy]] persists progress.
   the game still runs, unsaved, and says so at the top of the screen.
 - The save carries a **version number** and a **`lastPlayed` timestamp**.
 - Migrations run on load, one version step at a time. Version 1 → 2 renamed
-  the Meditation skill to [[Research]] and the Insight resource to [[Notes]].
+  the Meditation skill to Research and the Insight resource to [[Notes]];
+  version 2 → 3 renamed that skill again to [[Study]], once Research became
+  the name of the category.
 - Tuning lives in `js/config.js` under `CONFIG.save`.
 
 > [!warning] Not implemented

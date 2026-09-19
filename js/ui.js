@@ -30,10 +30,9 @@ const UI = {
       saveNotice: document.getElementById('save-notice'),
     };
 
-    const skill = CONFIG.skills.research;
+    const skill = CONFIG.skills.study;
     this.el.categoryTitle.textContent = CONFIG.categories[skill.categoryId].name;
     this.el.skillTitle.textContent = skill.name;
-    this.el.actionLabel.textContent = skill.buttonLabel;
     this.el.maxLevel.textContent = String(skill.maxLevel);
     this.el.resourceName.textContent = CONFIG.resources[skill.resourceId].name;
 
@@ -136,6 +135,8 @@ const UI = {
   },
 
   setActionState(active) {
+    const skill = CONFIG.skills.study;
+    this.el.actionLabel.textContent = active ? skill.buttonLabelActive : skill.buttonLabel;
     this.el.actionButton.classList.toggle('is-active', active);
     this.el.actionButton.setAttribute('aria-pressed', String(active));
     this.el.actionButton.dataset.state = active ? 'stop' : 'start';
@@ -164,7 +165,7 @@ const UI = {
   },
 
   render() {
-    const skill = CONFIG.skills.research;
+    const skill = CONFIG.skills.study;
     const progress = State.getSkill(skill.id);
     const maxed = Leveling.isMaxLevel(skill, progress.level);
     const needed = Leveling.xpForNextLevel(skill, progress.level);

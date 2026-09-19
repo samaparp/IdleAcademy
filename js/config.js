@@ -18,7 +18,7 @@ const CONFIG = {
   /* ---- Save system ----------------------------------------------------- */
   save: {
     storageKey: 'idleacademy.save',
-    version: 2,
+    version: 3,
     autosaveMs: 5000,
   },
 
@@ -30,21 +30,22 @@ const CONFIG = {
   },
 
   /* ---- Skill categories ------------------------------------------------ */
-  // The Skill tab groups skills by category. Research is the first category;
-  // its higher tiers will be further skills inside it.
+  // The Skill tab groups skills by category. Research is the first category.
+  // Its skills are a tier ladder: Study -> Sketch -> Draft -> Theorise.
+  // Only Study exists; see design/Research.md.
   categories: {
     research: { id: 'research', name: 'Research' },
   },
 
   /* ---- Skills ---------------------------------------------------------- */
   skills: {
-    research: {
-      id: 'research',
-      // PLACEHOLDER: the tier-1 skill has no name of its own yet, so it
-      // currently repeats its category's name. See design/Research.md.
-      name: 'Research',
+    study: {
+      id: 'study',
+      name: 'Study',
       categoryId: 'research',
-      buttonLabel: 'Research',
+      // Skill names are verbs; the button reads as the gerund while running.
+      buttonLabel: 'Study',
+      buttonLabelActive: 'Studying',
       // Length of one tick in ms at speed x1.
       tickMs: 1000,
       // Gains applied on every tick.

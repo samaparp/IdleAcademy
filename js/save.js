@@ -69,6 +69,16 @@ const Save = {
       version = 2;
     }
 
+    // v2 -> v3: Research became the name of the category, and the tier-1
+    // skill was named Study.
+    if (version < 3) {
+      if (parsed.skills && parsed.skills.research && !parsed.skills.study) {
+        parsed.skills.study = parsed.skills.research;
+        delete parsed.skills.research;
+      }
+      version = 3;
+    }
+
     parsed.version = version;
 
     if (version > CONFIG.save.version) {
