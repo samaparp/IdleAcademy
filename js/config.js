@@ -29,11 +29,21 @@ const CONFIG = {
     notes: { id: 'notes', name: 'Notes' },
   },
 
+  /* ---- Skill categories ------------------------------------------------ */
+  // The Skill tab groups skills by category. Research is the first category;
+  // its higher tiers will be further skills inside it.
+  categories: {
+    research: { id: 'research', name: 'Research' },
+  },
+
   /* ---- Skills ---------------------------------------------------------- */
   skills: {
     research: {
       id: 'research',
+      // PLACEHOLDER: the tier-1 skill has no name of its own yet, so it
+      // currently repeats its category's name. See design/Research.md.
       name: 'Research',
+      categoryId: 'research',
       buttonLabel: 'Research',
       // Length of one tick in ms at speed x1.
       tickMs: 1000,

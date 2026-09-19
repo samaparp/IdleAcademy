@@ -13,6 +13,8 @@ const UI = {
 
   init() {
     this.el = {
+      tabs: document.getElementById('tabs'),
+      categoryTitle: document.getElementById('category-title'),
       skillTitle: document.getElementById('skill-title'),
       levelValue: document.getElementById('skill-level'),
       maxLevel: document.getElementById('skill-max-level'),
@@ -29,6 +31,7 @@ const UI = {
     };
 
     const skill = CONFIG.skills.research;
+    this.el.categoryTitle.textContent = CONFIG.categories[skill.categoryId].name;
     this.el.skillTitle.textContent = skill.name;
     this.el.actionLabel.textContent = skill.buttonLabel;
     this.el.maxLevel.textContent = String(skill.maxLevel);
@@ -40,12 +43,47 @@ const UI = {
       Save.save(State.current);
     });
 
+    this.initTabs();
     this.buildSpeedButtons();
     this.bindReset();
 
     Engine.onTick = () => this.render();
     this.setActionState(false);
     this.render(true);
+  },
+
+  /*
+   * Top-level tabs. Each tab button's aria-controls names its panel, so the
+   * markup stays the single source of truth for which panel belongs to which
+   * tab and this code needs no list of its own.
+   */
+  initTabs() {
+    this.tabButtons = [...this.el.tabs.querySelectorAll('[role="tab"]')];
+
+    this.tabButtons.forEach((button, index) => {
+      button.addEventListener('click', () => this.selectTab(index));
+      button.addEventListener('keydown', (event) => {
+        const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        event.preventDefault();
+        const next = (index + step + this.tabButtons.length) % this.tabButtons.length;
+        this.selectTab(next);
+        this.tabButtons[next].focus();
+      });
+    });
+
+    const selected = this.tabButtons.findIndex((b) => b.getAttribute('aria-selected') === 'true');
+    this.selectTab(selected === -1 ? 0 : selected);
+  },
+
+  selectTab(index) {
+    this.tabButtons.forEach((button, i) => {
+      const selected = i === index;
+      button.setAttribute('aria-selected', String(selected));
+      button.tabIndex = selected ? 0 : -1;
+      button.classList.toggle('is-selected', selected);
+      document.getElementById(button.getAttribute('aria-controls')).hidden = !selected;
+    });
   },
 
   buildSpeedButtons() {

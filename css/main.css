@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
  * main.css — mobile-first. Light and dark via prefers-color-scheme.
  * Tap targets are at least 48px tall; body text is at least 16px so
@@ -53,16 +55,86 @@ body {
 }
 
 .app-header {
-  padding: calc(env(safe-area-inset-top) + 20px) var(--gap) 4px;
+  padding: calc(env(safe-area-inset-top) + 20px) var(--gap) 0;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .app-title {
-  margin: 0;
+  margin: 0 0 14px;
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text-muted);
   text-transform: uppercase;
+}
+
+/* ---- Tabs ------------------------------------------------------------- */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.tab {
+  flex: 1;
+  min-height: 48px;
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.tab.is-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.tab:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* An author `display` beats the browser's own [hidden] rule, so restate it. */
+.panel[hidden] {
+  display: none;
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.category {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.placeholder {
+  margin: 0;
+  padding: 28px var(--gap);
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
 }
 
 .app-main {
@@ -107,6 +179,8 @@ body {
   font-size: 1.6rem;
   font-weight: 650;
 }
+
+.skill { margin-top: -4px; }
 
 .skill__level {
   margin: 0;
@@ -170,7 +244,7 @@ body {
 }
 
 .action.is-active .action__label::after {
-  content: "\00a0\00b7\00a0active";
+  content: " · active";
   font-size: 0.8em;
   font-weight: 500;
   opacity: 0.85;

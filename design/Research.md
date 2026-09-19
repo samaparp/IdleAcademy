@@ -44,7 +44,8 @@ once per second.
 
 ## UI
 
-The Research screen shows:
+Lives in the **Skill** tab, under the **Research** category heading. The
+skill card shows:
 
 - Skill title.
 - Level display (current level, out of the 100 maximum).
@@ -78,7 +79,9 @@ and can be changed without touching game logic:
 
 > [!question] Tier 1 needs a real name
 > "Research" is the name of the *category*, not of this skill. The tier-1
-> skill needs a name of its own before tier 2 arrives. **Undecided.**
+> skill needs a name of its own before tier 2 arrives. **Undecided** — so
+> the card currently repeats the category name, which is visible in-game as
+> "Research" appearing twice.
 
 > [!question] Structural, not yet decided
 > - **Can two skills run at once?** The engine currently runs exactly one

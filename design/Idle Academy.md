@@ -18,6 +18,21 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 - [[Notes]] — the tier-1 resource.
 - [[Save System]] — how progress persists, and its limits.
 
+## Screen layout
+
+Three tabs across the top of the page, mobile-first:
+
+| Tab           | Holds                                                          |
+| ------------- | -------------------------------------------------------------- |
+| **Character** | Nothing designed yet                                            |
+| **Skill**     | Skills, grouped by category. The only category is [[Research]]  |
+| **Settings**  | Test tools for now                                              |
+
+> [!note] Assumptions
+> **Skill** opens by default, because it is the only tab with anything in
+> it. Test tools were moved into **Settings** as the obvious home; say if
+> they belong somewhere else.
+
 ## Skill ladder
 
 > [!info] Tiers are separate skills
