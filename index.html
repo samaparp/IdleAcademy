@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14151a" media="(prefers-color-scheme: dark)">
+  <title>Idle Academy</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-title">Idle Academy</h1>
+  </header>
+
+  <main class="app-main">
+    <p id="save-notice" class="notice" role="status" hidden></p>
+
+    <section class="card skill" aria-labelledby="skill-title">
+      <div class="skill__head">
+        <h2 class="skill__title" id="skill-title">Meditation</h2>
+        <p class="skill__level">
+          Level <span class="skill__level-value" id="skill-level">1</span>
+          <span class="skill__level-max">/ <span id="skill-max-level">100</span></span>
+        </p>
+      </div>
+
+      <button type="button" class="action" id="skill-action" aria-pressed="false">
+        <span class="action__fill" id="skill-tick-fill" aria-hidden="true"></span>
+        <span class="action__label" id="skill-action-label">Meditate</span>
+      </button>
+
+      <div class="xp">
+        <div class="bar" role="img" aria-labelledby="skill-xp-text">
+          <div class="bar__fill" id="skill-xp-fill"></div>
+        </div>
+        <p class="xp__text" id="skill-xp-text">0 / 10 XP</p>
+      </div>
+
+      <div class="resource">
+        <span class="resource__name" id="resource-name">Insight</span>
+        <span class="resource__value" id="resource-value">0</span>
+      </div>
+    </section>
+
+    <details class="card tools">
+      <summary class="tools__summary">Test tools</summary>
+      <div class="tools__body">
+        <div class="tools__row">
+          <span class="tools__label" id="speed-label">Speed</span>
+          <div class="tools__buttons" id="speed-buttons" role="group" aria-labelledby="speed-label"></div>
+        </div>
+        <div class="tools__row">
+          <button type="button" class="reset" id="reset-button">Reset save</button>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <!-- Load order matters: config -> maths -> state -> save -> skills -> engine -> ui -> boot -->
+  <script src="js/config.js"></script>
+  <script src="js/leveling.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/save.js"></script>
+  <script src="js/skills/meditation.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
