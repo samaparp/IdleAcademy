@@ -71,22 +71,29 @@ and can be changed without touching game logic:
 
 ## Open questions
 
-> [!question] Higher Research tiers
-> The intent is for Research to have **higher tiers that yield higher-tier
-> resources** (Notes → Sketches → …). **Not designed or implemented.**
-> Undecided:
-> - Are tiers **actions inside the Research skill** (one skill, several
->   buttons, each gated by level) or **separate skills**?
-> - Do higher tiers **replace** lower ones, or does the player keep wanting
->   Notes because later systems consume them?
-> - Do higher tiers grant more XP per tick, take longer per tick, or both?
->
-> The current 1-to-100 curve was set before tiers were on the table and will
-> likely need rebalancing once they are.
+> [!info] Tiers are separate skills
+> **Decided:** higher research tiers are **separate skills**, each with its
+> own level 1-100 and its own output resource — not extra actions inside one
+> skill. This skill is **tier 1** and produces [[Notes]].
 
-> [!question] Button verb
-> The button reads **Research**, matching the skill name. **Study**, **Read**
-> or **Take notes** are alternatives if the noun-as-verb reads oddly in play.
+> [!question] Tier 1 needs a real name
+> "Research" is the name of the *category*, not of this skill. The tier-1
+> skill needs a name of its own before tier 2 arrives. **Undecided.**
+
+> [!question] Structural, not yet decided
+> - **Can two skills run at once?** The engine currently runs exactly one
+>   activity at a time. With separate tier skills this becomes a real
+>   choice: one activity across the whole game, or one per skill in
+>   parallel.
+> - **How does tier 2 unlock?** A level in tier 1, a quantity of [[Notes]]
+>   spent, or something else.
+> - **Does tier 1 stay useful?** If tier 2 strictly beats it, nothing is
+>   produced at tier 1 after the switch and it becomes dead content.
+> - **Navigation.** One screen holds one skill today. Several skills need a
+>   way to move between them.
+> - **The curve.** `L × 10` to level 100 is ~1 h 22 min of unbroken play at
+>   ×1. That was set for a single skill with a single action and will likely
+>   need rebalancing once there is a ladder of them.
 
 ## History
 

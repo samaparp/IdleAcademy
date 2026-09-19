@@ -13,8 +13,22 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Design notes
 
-- [[Research]] — the first gathering skill, and the template every later
-  skill copies. Produces [[Notes]].
+- [[Research]] — the tier-1 gathering skill, and the template every later
+  skill copies. Produces [[Notes]]. Needs a name of its own.
+- [[Notes]] — the tier-1 resource.
+- [[Save System]] — how progress persists, and its limits.
+
+## Skill ladder
+
+> [!info] Tiers are separate skills
+> Research tiers are **separate skills**, each with its own level 1-100 and
+> its own output resource — not extra actions inside one skill. "Research"
+> is the category; each tier is a skill within it.
+
+| Tier | Skill              | Produces   | Status                 |
+| ---- | ------------------ | ---------- | ---------------------- |
+| 1    | [[Research]]       | [[Notes]]  | Implemented, unnamed   |
+| 2    | *unnamed*          | *undecided*| Proposed               |
 
 ## World
 
@@ -34,7 +48,13 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Resources
 
-| Resource   | Produced by  | Status                                  |
-| ---------- | ------------ | --------------------------------------- |
-| [[Notes]]  | [[Research]] | Implemented                             |
-| Sketches   | —            | Proposed: output of a higher Research tier |
+| Resource  | Produced by  | Status      |
+| --------- | ------------ | ----------- |
+| [[Notes]] | [[Research]] | Implemented |
+
+Nothing consumes [[Notes]] yet.
+
+## Planned
+
+- **Copy/paste save export and import** — see [[Save System]]. Needed
+  because Safari deletes site storage after 7 days of not visiting.
