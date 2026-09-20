@@ -90,12 +90,27 @@ for how a stage is cleared.
 >   decision, and the UI should make that obvious rather than let them
 >   discover it by losing a night.
 
-> [!warning] Implementation constraint on the skill arithmetic
-> Multiplying ticks by the per-tick gain is only exact while **the gain
-> does not change as the skill levels**. It does not today: the rate is
-> flat and the XP curve does not feed back into it. If a level ever raises
-> a skill's yield, offline resolution has to step through the level-ups
-> rather than multiply, or the player is short-changed for levelling.
+> [!danger] Offline resolution must step through level-ups
+> **Per-tick gains will change with level** — that mechanic is planned.
+> So offline resolution can **never** be `ticks x per-tick gain`: it has to
+> walk the ticks, applying level-ups as they happen, or a player who levels
+> while away is paid at their old rate for the whole period.
+>
+> Write it that way from the start. Twenty-four hours of a one-second tick
+> is 86,400 iterations, which is trivial for a browser, and a closed-form
+> shortcut can replace the loop later if a skill ever ticks fast enough to
+> matter.
+
+> [!important] Partial ticks carry over
+> The leftover fraction of a tick is **kept, not discarded**. Some skills
+> will have long ticks, where losing one is a real loss.
+>
+> That means the remainder has to **survive being saved**: it is state, not
+> a transient counter in the engine. Three cases need answers, and they are
+> not automatically the same:
+> - Closing the page mid-tick and returning.
+> - Stopping a skill and restarting the same one.
+> - Switching to another skill and coming back.
 
 > [!question] Undecided
 > - **Is offline skill progress shown to the player?** It is granted rather

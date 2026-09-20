@@ -34,10 +34,20 @@ available later without contradicting anything.
 
 ## Open questions
 
+## Where quid comes from
+
+> [!important] Primarily from selling
+> **Selling things is the main source of quid.** A [[Hunt]] also pays some,
+> but the hunt's real yield is materials, not money.
+
+> [!warning] Selling is not designed
+> There is no market, vendor or shop yet — not in the design and not in the
+> code. What can be sold, where, at what price, and whether prices move are
+> all open. This is now the **largest undesigned system** in the game, and
+> the economy hangs off it.
+
 > [!question] Undecided
-> - **What earns quid?** No skill yields it. Selling [[Notes]] and the
->   other research outputs is the obvious candidate, but nothing consumes
->   those yet either.
+> - **What can be sold** — research outputs, hunt materials, both?
 > - **What spends it?** Equipment, unlocking skills, and materials are all
 >   possible; none are designed.
 > - **How is it displayed?** Plain (`1,240 quid`), symbol-first (`£1,240`),

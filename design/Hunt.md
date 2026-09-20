@@ -56,16 +56,34 @@ by **tapping a button**.
 > Skill income works differently: it is granted tick by tick and never
 > claimed. See [[Core Loop]].
 
+### What a hunting ground pays
+
+A hunting ground yields **several types of resource**, decided by the stage
+— not a single currency. It also pays **some [[Quid]]**, but that is not
+where the money mainly comes from: **[[Quid]] is earned primarily by
+selling things.**
+
+### The claim button
+
+- Shows the **accrued time** on or beside it, so the player can see how
+  much is waiting without doing arithmetic.
+- **Changes colour when full** — the 24-hour cap reached, and further time
+  is being wasted.
+- **Disabled below one minute** of accrual: there is nothing worth
+  claiming, and the button should say so rather than pay out nothing.
+
+### Switching hunting grounds
+
+Switching **auto-claims** whatever is banked first. Nothing is lost, and
+the player is never punished for changing their mind mid-accrual.
+
 ## Open questions
 
 > [!question] Undecided
-> - **Does a hunting ground pay [[Quid]], materials, or both?** "Type and
->   quantity of resources" suggests materials; quid was going to be the
->   hunt's payout. Both is plausible — a bounty plus what you carry back.
-> - **What happens to banked income when the hunting ground is switched?**
->   Does the unclaimed pile stay, convert, or get lost? A player who
->   switches after 20 hours will care a great deal.
-> - **One hunting ground at a time?** Presumably yes, but worth stating.
-> - **Does the claim button claim both streams at once**, or one each?
+> - **One hunting ground at a time?** Everything so far assumes yes, but it
+>   has not been stated.
 > - **Does travelling to a location cost anything** — time, quid, an
 >   unlock — or is it a free menu once the location is known?
+> - **Where does the claim button live?** The Hunt tab is the obvious home,
+>   but a player who is skilling will not see it fill up. A full bank is
+>   wasted income, and the colour change only helps someone looking at it.

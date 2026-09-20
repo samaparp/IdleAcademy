@@ -58,17 +58,24 @@ of one system.
 **Skill — ticks, granted directly.**
 - A skill grants its resource and XP every time its tick timer completes,
   whether or not the player is watching.
-- Offline resolution is arithmetic, not a bank: take the time away, cap it
-  at **24 hours**, divide by the skill's tick length, multiply by the
-  per-tick gain.
+- Offline resolution takes the time away, caps it at **24 hours**, and
+  resolves it into ticks. **It must step through level-ups, not multiply**
+  — per-tick gains will change with level, so a flat multiplication would
+  short-change the player for levelling.
+- **Partial ticks carry over.** The remainder is never discarded; some
+  skills will have long ticks where losing one matters.
 - Whichever skill was running when the page closed is the one that keeps
   ticking.
 - **No claim button.** Skill gains are not claimed.
+- On return, a **pop-up** reports what was earned while away.
 
 **Hunt — accrues per minute, claimed.**
 - Accrues from the moment it was **last claimed**, online and offline alike.
 - Stops after **24 hours**.
-- Collected by **tapping a button**, never granted silently.
+- Collected by **tapping a button**, never granted silently. The button
+  shows the **accrued time**, **changes colour when full** at 24 hours, and
+  is **disabled below one minute** of accrual.
+- Switching hunting grounds **auto-claims** whatever is banked first.
 
 **Neither is implemented.** `lastPlayed` exists to support the skill side.
 
