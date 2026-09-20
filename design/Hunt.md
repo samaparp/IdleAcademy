@@ -48,16 +48,13 @@ The second income stream of [[Idle Academy]], and the reason the
 
 ## Income
 
-| Source    | Rate           | Accrues from       |
-| --------- | -------------- | ------------------ |
-| **Skill** | Per tick       | When the page closed |
-| **Hunt**  | Per **minute** | The last claim     |
+Hunt income accrues **per minute, continuously, online and offline**, from
+the moment it was last claimed. It stops after **24 hours** and is collected
+by **tapping a button**.
 
-- Hunt income accrues **continuously, online and offline**, from the moment
-  it was last claimed.
-- Both streams stop after **24 hours**.
-- Collected by **tapping a button**. Nothing is granted silently.
-- Skill income is whatever the running skill produces — see [[Core Loop]].
+> [!note] The claim button is Hunt's alone
+> Skill income works differently: it is granted tick by tick and never
+> claimed. See [[Core Loop]].
 
 ## Open questions
 

@@ -27,10 +27,12 @@ Study (time)  →  Notes and other research outputs
 
 ## The two income streams
 
-| Source    | Rate           | Accrues from         | Offline |
-| --------- | -------------- | -------------------- | ------- |
-| **Skill** | Per tick       | When the page closed | Yes     |
-| **Hunt**  | Per **minute** | The last claim       | Yes     |
+| Source    | Rate           | How it arrives     | Claimed |
+| --------- | -------------- | ------------------ | ------- |
+| **Skill** | Per tick       | Granted each tick  | No      |
+| **Hunt**  | Per **minute** | Banked until taken | Yes     |
+
+These are **two different mechanisms**, not one system with two rates.
 
 - **Skill** income is the resource the running skill produces — [[Notes]]
   from [[Study]], and so on. One skill runs at a time (see [[Character]]),
@@ -88,12 +90,20 @@ for how a stage is cleared.
 >   decision, and the UI should make that obvious rather than let them
 >   discover it by losing a night.
 
+> [!warning] Implementation constraint on the skill arithmetic
+> Multiplying ticks by the per-tick gain is only exact while **the gain
+> does not change as the skill levels**. It does not today: the rate is
+> flat and the XP curve does not feed back into it. If a level ever raises
+> a skill's yield, offline resolution has to step through the level-ups
+> rather than multiply, or the player is short-changed for levelling.
+
 > [!question] Undecided
-> - The two accrual baselines differ — hunt from the last claim, skill from
->   when the page closed. Is that right? If skill also ran from the last
->   claim, a long play session would eat the offline allowance before the
->   player even left.
-> - Does the speed multiplier in Test tools apply to offline accrual when
->   testing it?
+> - **Is offline skill progress shown to the player?** It is granted rather
+>   than claimed, but "you gained 3,400 Notes while away" is information
+>   worth giving. Silent or summarised?
+> - Does a **partial tick** carry over, or is the remainder discarded on
+>   each return?
+> - Does the speed multiplier in Test tools apply to offline resolution
+>   when testing it?
 > - See [[Hunt]] for the open questions on payouts, switching hunting
 >   grounds, and claiming.

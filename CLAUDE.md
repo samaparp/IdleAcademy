@@ -52,14 +52,25 @@ Skilling, crafting, levelling. No graphics.
 
 **Offline progress is part of the design.** See [[Core Loop]] in `design/`.
 
-- Two income streams: **skill ticks** (for whichever skill was running when
-  the page was closed) and **hunt income per minute**.
-- Hunt income accrues **from the moment it was last claimed**, online and
-  offline alike.
-- Both streams stop after **24 hours**.
-- Collected by **tapping a button**, not granted silently.
-- **Not yet implemented, and not yet fully designed.** `lastPlayed` exists
-  to support it.
+Two income streams, with **different mechanisms**. They are not variations
+of one system.
+
+**Skill — ticks, granted directly.**
+- A skill grants its resource and XP every time its tick timer completes,
+  whether or not the player is watching.
+- Offline resolution is arithmetic, not a bank: take the time away, cap it
+  at **24 hours**, divide by the skill's tick length, multiply by the
+  per-tick gain.
+- Whichever skill was running when the page closed is the one that keeps
+  ticking.
+- **No claim button.** Skill gains are not claimed.
+
+**Hunt — accrues per minute, claimed.**
+- Accrues from the moment it was **last claimed**, online and offline alike.
+- Stops after **24 hours**.
+- Collected by **tapping a button**, never granted silently.
+
+**Neither is implemented.** `lastPlayed` exists to support the skill side.
 
 > The engine currently uses `requestAnimationFrame`, which the browser
 > pauses when the page is hidden, and clamps elapsed time per frame. That
