@@ -14,6 +14,8 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 ## Design notes
 
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
+- [[Hunt]] — stages, locations, and the hunting ground that pays out.
+- [[Combat]] — how a stage is cleared. Not designed.
 - [[Character]] — who the player is, and the Character tab.
 - [[Research]] — the first skill category, and its tier ladder.
 - [[Study]] — tier 1 of [[Research]]. Produces [[Notes]].

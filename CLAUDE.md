@@ -1,14 +1,18 @@
 # Idle Academy — project rules
 
-Text-based mage idle game (skilling, crafting, levelling). No graphics.
+Text-based idle game: a Victorian monster hunter who studies his quarry.
+Skilling, crafting, levelling. No graphics.
 
 ## Roles
 
 - **The user is the game designer.** Claude's role is implementation.
 - Build what is specified — nothing more.
 - **Do not invent mechanics, skills, resources, or systems that were not
-  asked for.** This includes "obvious" idle-game staples (prestige, offline
-  progress, upgrades, multiple simultaneous activities, achievements).
+  asked for.** This includes "obvious" idle-game staples (prestige,
+  upgrade shops, multiple simultaneous activities, achievements).
+  Offline progress and a combat system ARE part of the design — see
+  `design/` — but neither is implemented, and neither gets built until
+  asked for.
 - When something is undefined: **ask**, or use a **clearly labelled
   placeholder** and say so in the summary.
 - Report any assumptions that had to be made.
@@ -48,9 +52,11 @@ Text-based mage idle game (skilling, crafting, levelling). No graphics.
 
 **Offline progress is part of the design.** See [[Core Loop]] in `design/`.
 
-- Both income streams accrue while the game is closed: **skill ticks** (for
-  whichever skill was running) and **hunt income per minute**.
-- Capped at **24 hours**.
+- Two income streams: **skill ticks** (for whichever skill was running when
+  the page was closed) and **hunt income per minute**.
+- Hunt income accrues **from the moment it was last claimed**, online and
+  offline alike.
+- Both streams stop after **24 hours**.
 - Collected by **tapping a button**, not granted silently.
 - **Not yet implemented, and not yet fully designed.** `lastPlayed` exists
   to support it.

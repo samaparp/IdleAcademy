@@ -27,10 +27,10 @@ Study (time)  →  Notes and other research outputs
 
 ## The two income streams
 
-| Source    | Rate           | Earned while offline |
-| --------- | -------------- | -------------------- |
-| **Skill** | Per tick       | Yes                  |
-| **Hunt**  | Per **minute** | Yes                  |
+| Source    | Rate           | Accrues from         | Offline |
+| --------- | -------------- | -------------------- | ------- |
+| **Skill** | Per tick       | When the page closed | Yes     |
+| **Hunt**  | Per **minute** | The last claim       | Yes     |
 
 - **Skill** income is the resource the running skill produces — [[Notes]]
   from [[Study]], and so on. One skill runs at a time (see [[Character]]),
@@ -39,8 +39,9 @@ Study (time)  →  Notes and other research outputs
   accrues alongside whatever skill is running, rather than competing for
   the single activity slot. A cleared district pays a retainer whether or
   not the [[Character]] is in the library.
-- Hunt income is **tiered by the furthest stage cleared** — the AFK Arena
-  model. Clearing a stage raises the rate permanently.
+- Hunt income depends on **which cleared stage the player selects as the
+  hunting ground** — not automatically on the furthest one. The choice
+  decides the **type and quantity** of what accrues. See [[Hunt]].
 
 ## Offline progress
 
@@ -66,27 +67,33 @@ Study (time)  →  Notes and other research outputs
 
 ## Hunt stages
 
-> [!question] Being designed
-> - **What gates a stage?** The cheapest version that works: a stage costs
->   research outputs to attempt, optionally with a skill-level requirement.
->   No separate power stat — the gate *is* the preparation. A richer
->   version adds equipment from the **Inv** tab as a second axis, so
->   [[Quid]] buys reductions in that cost.
-> - **How many stages, and do they group by location?** This decides
->   whether **Travel** is a menu or a progression of its own.
-> - Clearing a stage is proposed as **instant and deterministic**: meet the
->   requirements, clear it. No combat simulation, no random failure — the
->   time was already paid in the Skill tab, and repeating a failed tap is
->   not gameplay.
+See [[Hunt]] for stages, locations and the hunting ground, and [[Combat]]
+for how a stage is cleared.
+
+> [!info] Settled
+> - Stages are grouped by **location**; **Travel** picks the location.
+> - Clearing a stage runs a **deterministic simulation** — it plays out,
+>   but never rolls dice.
+> - Hunt is **not an activity**: it never competes with a skill for the
+>   single activity slot.
 
 ## Open questions
 
+> [!info] Settled
+> - **"Skill upgrades" means levelling and tier unlocks** — reaching higher
+>   skill levels and opening the next skill. There is no separate upgrade
+>   purchase.
+> - **The skill you left running is the one that keeps accumulating.** So
+>   the last thing the player taps before closing the game is a real
+>   decision, and the UI should make that obvious rather than let them
+>   discover it by losing a night.
+
 > [!question] Undecided
-> - **What does "skill upgrades" mean?** Levelling as it already works, or
->   spending resources to improve a skill's rate?
-> - **Does the 24-hour cap apply per stream or to the whole session away?**
-> - **What if no skill was running when the player left?** Presumably hunt
->   income accrues and skill income does not — so the last thing you tap
->   before closing the game matters.
+> - The two accrual baselines differ — hunt from the last claim, skill from
+>   when the page closed. Is that right? If skill also ran from the last
+>   claim, a long play session would eat the offline allowance before the
+>   player even left.
 > - Does the speed multiplier in Test tools apply to offline accrual when
 >   testing it?
+> - See [[Hunt]] for the open questions on payouts, switching hunting
+>   grounds, and claiming.
