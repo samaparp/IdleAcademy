@@ -55,6 +55,24 @@ Hunt  | Travel | Settings
 > `unlocked` in `CONFIG.tabs` is a static flag that nothing in the game
 > flips, exactly as with skills.
 
+### Tab notifications
+
+A small **red dot** on a tab marks something needing attention — the first
+case being a [[Hunt]] claim worth collecting, which a player busy skilling
+would otherwise never see fill up.
+
+> [!warning] Not implemented
+> Nothing in the game can raise a notification yet. This lands with the
+> Hunt tab, not before.
+
+> [!question] Keep it scarce
+> A red dot works because it is rare. If several tabs can raise one at
+> once, it stops meaning "look here" and becomes decoration. Each new
+> trigger should have to earn it.
+>
+> It also needs a text equivalent, not colour alone — the dot carries
+> meaning, so the tab's accessible name has to say so too.
+
 > [!note] Assumptions
 > **Skill** opens by default. Tab labels are abbreviated to fit three per
 > row — **Char** and **Inv** rather than Character and Inventory.

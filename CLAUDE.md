@@ -52,8 +52,13 @@ Skilling, crafting, levelling. No graphics.
 
 **Offline progress is part of the design.** See [[Core Loop]] in `design/`.
 
-Two income streams, with **different mechanisms**. They are not variations
-of one system.
+Two income streams, with **different mechanisms** and **different clocks**.
+They are not variations of one system.
+
+- The skill cap measures **away time** — from the page closing to it being
+  reopened.
+- The hunt cap measures **time since the last claim**, which keeps running
+  while the player is sitting in the game.
 
 **Skill — ticks, granted directly.**
 - A skill grants its resource and XP every time its tick timer completes,
@@ -62,8 +67,12 @@ of one system.
   resolves it into ticks. **It must step through level-ups, not multiply**
   — per-tick gains will change with level, so a flat multiplication would
   short-change the player for levelling.
-- **Partial ticks carry over.** The remainder is never discarded; some
-  skills will have long ticks where losing one matters.
+- **Partial ticks carry over across being away, and nowhere else.** The
+  part-finished tick is saved when the page closes and the away time is
+  added to it, so a long tick is not lost by closing the game.
+  **Stopping a skill, or switching to another, resets the timer** and
+  discards the partial tick. That is deliberate, not an oversight: do not
+  "fix" it by saving per-skill progress.
 - Whichever skill was running when the page closed is the one that keeps
   ticking.
 - **No claim button.** Skill gains are not claimed.

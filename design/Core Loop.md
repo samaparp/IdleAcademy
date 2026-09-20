@@ -101,16 +101,29 @@ for how a stage is cleared.
 > shortcut can replace the loop later if a skill ever ticks fast enough to
 > matter.
 
-> [!important] Partial ticks carry over
-> The leftover fraction of a tick is **kept, not discarded**. Some skills
-> will have long ticks, where losing one is a real loss.
+> [!important] Partial ticks carry over across being away — and nowhere else
+> | Case                              | Partial tick |
+> | --------------------------------- | ------------ |
+> | Close the page mid-tick, come back | **Carried**  |
+> | Stop the skill, start it again     | Discarded    |
+> | Switch to another skill            | Discarded    |
 >
-> That means the remainder has to **survive being saved**: it is state, not
-> a transient counter in the engine. Three cases need answers, and they are
-> not automatically the same:
-> - Closing the page mid-tick and returning.
-> - Stopping a skill and restarting the same one.
-> - Switching to another skill and coming back.
+> So the part-finished tick is **saved when the page closes**, and the away
+> time is added to it — a fifteen-minute tick is not thrown away by
+> shutting the game. Within a session, stopping or switching **resets the
+> countdown**, which is deliberate: committing to a long tick is the cost
+> of running a long skill.
+>
+> The engine already zeroes its accumulator when a skill is toggled, which
+> is the correct behaviour. The only change needed is persisting that
+> accumulator when the page closes.
+
+> [!important] Two different clocks
+> The two 24-hour caps do not measure the same thing.
+>
+> - **Skill** measures **away time** — page closed to page reopened.
+> - **Hunt** measures **time since the last claim**, which keeps running
+>   while the player is sitting in the game doing something else.
 
 > [!question] Undecided
 > - **Is offline skill progress shown to the player?** It is granted rather

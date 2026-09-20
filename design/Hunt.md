@@ -79,11 +79,15 @@ the player is never punished for changing their mind mid-accrual.
 
 ## Open questions
 
+The claim button lives in the **Hunt tab**. A player busy skilling would
+never see it fill, so the Hunt tab carries a **red dot** when a claim is
+worth collecting — see [[Idle Academy]].
+
 > [!question] Undecided
 > - **One hunting ground at a time?** Everything so far assumes yes, but it
 >   has not been stated.
 > - **Does travelling to a location cost anything** — time, quid, an
 >   unlock — or is it a free menu once the location is known?
-> - **Where does the claim button live?** The Hunt tab is the obvious home,
->   but a player who is skilling will not see it fill up. A full bank is
->   wasted income, and the colour change only helps someone looking at it.
+> - **What lights the dot** — any claimable amount at all, or only a
+>   meaningful one? Lighting it the instant one minute passes would mean
+>   it is lit almost permanently, which is the same as not having it.
