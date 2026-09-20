@@ -36,7 +36,7 @@ grounds, or both.
 | Location      | Region        | Holds                          | State     |
 | ------------- | ------------- | ------------------------------ | --------- |
 | [[Stennard]]  | Stennard      | Market, workshop, guild, apothecary | Starting location |
-| The mine      | Elsewhere     | Mining                         | Unrevealed |
+| The mine      | Elsewhere     | Mining                         | Unrevealed. **On the critical path** — see [[Opening]] |
 
 ## Travel
 
@@ -72,6 +72,11 @@ grounds, or both.
 > flip it. `Skills.isUnlocked()` is the seam that rule goes through, and
 > it will need to read **state** — the revealed-locations list — rather
 > than config alone.
+
+> [!question] How is the mine revealed?
+> [[Opening]] has the player travel there in the first few minutes, but
+> locations are hidden until revealed. Buying the pickaxe, a guild
+> mission, or something else — undecided.
 
 ## Tavern
 

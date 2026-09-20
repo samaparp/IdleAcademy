@@ -18,10 +18,15 @@ works out of.
 
 | Venue          | Purpose                                              | State       |
 | -------------- | ---------------------------------------------------- | ----------- |
-| **Market**     | Buying and selling. The main source of [[Quid]]      | Open from the start |
-| **Workshop**   | Assembling equipment from research and materials     | Proposed    |
+| **Market**     | Buying and selling. The main source of [[Quid]]      | Open from the start. **On the critical path** |
+| **Workshop**   | Assembling things from research and materials        | **On the critical path** — see [[Opening]] |
 | **Guild**      | Missions, for rewards and for unlocking features and locations | Proposed |
 | **Apothecary** | Alchemy. Explicitly later                            | Proposed    |
+
+> [!important] Assembly is step two, not a later system
+> [[Opening]] puts assembling and selling in the first few minutes. The
+> market and a place to assemble are both needed before anything else in
+> the game can happen.
 
 The **mine** is *not* in Stennard — it sits in another region. See
 [[Locations]].

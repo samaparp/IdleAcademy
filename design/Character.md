@@ -32,6 +32,22 @@ One field so far.
 - A blank name falls back to the default rather than being left empty.
 - Stored in the save under `character.name`.
 
-> [!question] Open
-> Nothing else is designed for this tab. Condition, equipment and whatever
-> else a Hunter carries are all undecided.
+## Equipment
+
+The Character tab holds **equipment slots**. The first one known is a
+**tool** slot — the pickaxe from [[Opening]] goes there, and equipping it
+is part of what unlocks Mining.
+
+> [!warning] Not designed
+> One slot is named and nothing else. How many slots there are, what they
+> hold, whether equipment has stats, and how it interacts with [[Combat]]
+> are all open.
+
+> [!question] Undecided
+> - Does a tool have to **stay** equipped to keep its skill working, or
+>   does equipping it once unlock permanently?
+> - Are tools **permanent**, or do they wear out?
+> - Where does equipment live when not equipped — the **Inv** tab,
+>   presumably, but the relationship is not stated.
+> - Condition, health, and whatever else a Hunter carries into a fight
+>   are all still undecided.

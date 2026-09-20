@@ -13,6 +13,8 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Design notes
 
+- [[Opening]] — the critical path a new player walks, and the shortest
+  route to a playable build.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.
 - [[Locations]] — the Travel tab, and how places are revealed.
