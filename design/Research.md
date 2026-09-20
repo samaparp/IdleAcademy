@@ -34,10 +34,14 @@ without learning what they are. The category heading carries the count
 (`1 / 4 unlocked`).
 
 > [!danger] Nothing can unlock them yet
-> Unlock rules are **not designed**. The flag is static config
-> (`unlocked: true/false`) and nothing in the game flips it, so tiers 2 to 4
-> stay locked permanently until a rule exists. `Skills.isUnlocked()` is the
-> single place that rule will go.
+> Unlock rules are **not designed** for these tiers. The flag is static
+> config (`unlocked: true/false`) and nothing in the game flips it, so
+> tiers 2 to 4 stay locked permanently until a rule exists.
+> `Skills.isUnlocked()` is the single place that rule will go.
+>
+> One ingredient is now known: **revealing a location can be a requirement
+> for unlocking a skill** — see [[Locations]]. Whether the Research ladder
+> uses that, or gates on levels and resources instead, is still open.
 
 > [!warning] Placeholder tuning
 > Tiers 2 to 4 carry **the same numbers as [[Study]]** — 1 second per tick,

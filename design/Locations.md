@@ -43,20 +43,35 @@ grounds, or both.
 - **No cost.** Deliberately, to keep it simple.
 - Travelling does not consume a turn, a tick, or anything else.
 
-> [!question] Two questions that decide the architecture
-> **Does hunting require being there?** A hunting ground pays out over
-> time, including offline. If income only accrues while the player is
-> standing in that location, then walking to the market to sell something
-> stops the money. If it does not, then "travel" is only a menu and the
-> hunting ground is a standing arrangement. **The second is simpler and
-> almost certainly what is wanted**, but it needs saying.
+> [!important] Travel is a menu, not a place you stand
+> **Neither hunting nor skilling requires being at a location.** A hunting
+> ground keeps paying and a skill keeps ticking wherever the player is, and
+> whether or not the game is open.
 >
-> **Are skills tied to locations?** Mining happens at the mine. Does
-> Mining therefore only appear in the Skill tab while the player is at the
-> mine, and does travelling away stop it? That would collide with the
-> offline rule, where the skill left running keeps ticking while the game
-> is closed. The alternative is that reaching a location **unlocks** its
-> skill permanently, and the skill is then available anywhere.
+> So travelling somewhere never interrupts anything. Walking to the market
+> to sell does not stop the money coming in.
+
+> [!note] Which means there is no "current location" to enforce
+> Nothing in the game reads where the player is standing. A displayed
+> "you are in Stennard" is **flavour**, and it gates nothing.
+>
+> What genuinely has to be saved is **which locations have been revealed** —
+> that is real state, and it is what the unlock rules below read.
+
+## Locations as unlock requirements
+
+> [!important] The first concrete unlock rule
+> **Revealing a location can be a requirement for unlocking a skill.**
+> Reaching the mine is what makes Mining available.
+>
+> Once unlocked, the skill is available **anywhere** — the location was the
+> key, not the workplace.
+>
+> This is the first piece of the unlock system to be pinned down. Until
+> now every `unlocked` flag has been static config with nothing able to
+> flip it. `Skills.isUnlocked()` is the seam that rule goes through, and
+> it will need to read **state** — the revealed-locations list — rather
+> than config alone.
 
 ## Tavern
 
