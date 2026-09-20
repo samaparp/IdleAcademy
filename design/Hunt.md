@@ -80,14 +80,12 @@ the player is never punished for changing their mind mid-accrual.
 ## Open questions
 
 The claim button lives in the **Hunt tab**. A player busy skilling would
-never see it fill, so the Hunt tab carries a **red dot** when a claim is
-worth collecting — see [[Idle Academy]].
+never see it fill, so the Hunt tab carries a **notification dot** once at
+least **4 hours** have accrued — see [[Idle Academy]].
 
 > [!question] Undecided
 > - **One hunting ground at a time?** Everything so far assumes yes, but it
 >   has not been stated.
 > - **Does travelling to a location cost anything** — time, quid, an
 >   unlock — or is it a free menu once the location is known?
-> - **What lights the dot** — any claimable amount at all, or only a
->   meaningful one? Lighting it the instant one minute passes would mean
->   it is lit almost permanently, which is the same as not having it.
+> - Whether anything **other than the Hunt tab** should ever raise a dot.

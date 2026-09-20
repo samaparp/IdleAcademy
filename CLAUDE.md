@@ -29,6 +29,11 @@ Skilling, crafting, levelling. No graphics.
 	- Tap targets at least 48px tall.
 	- Body text at least 16px (prevents mobile zoom-on-focus).
 	- Light **and** dark mode via `prefers-color-scheme`.
+	- **Notification dots**: a small filled circle in the top-right corner
+	  of a button, for anything needing attention. A shared pattern, not a
+	  one-off. It carries **no text equivalent** — that is the designer's
+	  decision, so do not add one; mark the dot `aria-hidden` so nothing
+	  announces an empty element. Thresholds live in `CONFIG`.
 - Keep code split by concern so new skills can be added later:
   config, game logic, save system, UI.
 

@@ -55,29 +55,35 @@ Hunt  | Travel | Settings
 > `unlocked` in `CONFIG.tabs` is a static flag that nothing in the game
 > flips, exactly as with skills.
 
-### Tab notifications
+### Notification dots
 
-A small **red dot** on a tab marks something needing attention — the first
-case being a [[Hunt]] claim worth collecting, which a player busy skilling
-would otherwise never see fill up.
+A small **filled circle in the top-right corner of a button**, marking
+something that needs attention. It is a general pattern for buttons, not
+only tabs.
+
+| Where        | Lit when                                    |
+| ------------ | ------------------------------------------- |
+| **Hunt** tab | At least **4 hours** of [[Hunt]] income has accrued |
+
+> [!note] Four hours is the right sort of threshold
+> With a 24-hour cap, lighting at 4 hours means the dot appears after a
+> sixth of the bank has filled, leaving 20 hours before anything is
+> wasted. Early enough to be useful, late enough not to nag. The value
+> belongs in `CONFIG` so it can be retuned.
+
+> [!important] No text equivalent — a decision, not an oversight
+> The dot carries no label, `aria-label` or visually hidden text. It is a
+> notification alert of the kind every mobile user already reads at a
+> glance, and the designer has ruled that sufficient. **Do not add text
+> alternatives to it.**
+>
+> The dot element itself should still be `aria-hidden` so assistive
+> technology does not announce an empty element or stray glyph — that is
+> keeping it silent, not labelling it.
 
 > [!warning] Not implemented
 > Nothing in the game can raise a notification yet. This lands with the
 > Hunt tab, not before.
-
-> [!question] Keep it scarce
-> A red dot works because it is rare. If several tabs can raise one at
-> once, it stops meaning "look here" and becomes decoration. Each new
-> trigger should have to earn it.
->
-> It also needs a text equivalent, not colour alone — the dot carries
-> meaning, so the tab's accessible name has to say so too.
-
-> [!note] Assumptions
-> **Skill** opens by default. Tab labels are abbreviated to fit three per
-> row — **Char** and **Inv** rather than Character and Inventory.
-> **Travel** is the tab name for locations; say if it should read
-> "Locations".
 
 ## The player
 
