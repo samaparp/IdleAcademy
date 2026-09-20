@@ -41,11 +41,24 @@ Text-based mage idle game (skilling, crafting, levelling). No graphics.
 - Autosave to **localStorage**, every write and read wrapped in
   **try/catch** (private mode and full quotas throw).
 - The save carries a **version number** and a **`lastPlayed` timestamp**.
-- The timestamp is for **future** offline progress. **Offline progress is
-  not implemented** — do not implement it until asked.
-- **No progress while the page is closed or backgrounded.** The tick loop is
-  driven by `requestAnimationFrame` (which the browser pauses when hidden)
-  and elapsed time per frame is clamped, so a hidden tab cannot catch up.
+- Migrations run on load, one version step at a time. Renaming anything the
+  save stores means adding a migration, never resetting the player.
+
+## Offline progress
+
+**Offline progress is part of the design.** See [[Core Loop]] in `design/`.
+
+- Both income streams accrue while the game is closed: **skill ticks** (for
+  whichever skill was running) and **hunt income per minute**.
+- Capped at **24 hours**.
+- Collected by **tapping a button**, not granted silently.
+- **Not yet implemented, and not yet fully designed.** `lastPlayed` exists
+  to support it.
+
+> The engine currently uses `requestAnimationFrame`, which the browser
+> pauses when the page is hidden, and clamps elapsed time per frame. That
+> means no progress accrues while closed or backgrounded **today**. This is
+> an implementation state, NOT a design rule — do not "restore" it as one.
 
 ## Test tools
 

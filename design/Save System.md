@@ -25,9 +25,13 @@ How [[Idle Academy]] persists progress.
   the name of the category; version 3 → 4 added the character's name.
 - Tuning lives in `js/config.js` under `CONFIG.save`.
 
-> [!warning] Not implemented
-> **Offline progress.** `lastPlayed` exists so it *can* be built later.
-> Nothing accrues while the page is closed or backgrounded.
+> [!important] Offline progress is part of the design
+> Both skill ticks and hunt income accrue while the game is closed, capped
+> at 24 hours and collected by tapping a button. See [[Core Loop]].
+>
+> **Not implemented yet.** `lastPlayed` exists to support it. Nothing
+> accrues while the page is closed *today*, which is an implementation
+> state and not a design rule.
 
 ## Constraints
 
@@ -43,7 +47,9 @@ The save is scoped to one browser, on one device, for one site:
 > [!danger] Safari evicts storage after 7 days
 > iOS and macOS Safari delete script-writable storage for sites the player
 > has not visited in **7 days**. A save left untouched for a week can simply
-> be gone. This is the main reason the export/import plan below exists.
+> be gone. This is the main reason the export/import plan below exists, and
+> it matters more now that a save banks up to 24 hours of offline income
+> rather than just a level.
 >
 > Storage is scoped to the whole domain, not the path — a second project at
 > another path on the same domain shares the same storage box. The key is

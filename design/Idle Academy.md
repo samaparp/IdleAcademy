@@ -13,6 +13,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Design notes
 
+- [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Character]] — who the player is, and the Character tab.
 - [[Research]] — the first skill category, and its tier ladder.
 - [[Study]] — tier 1 of [[Research]]. Produces [[Notes]].
@@ -92,7 +93,9 @@ size of a category is never hidden.
 - All tuning values live in `js/config.js`. Design notes describe intent;
   `js/config.js` holds the authoritative numbers.
 - Mobile-first: the game is played on a phone.
-- Progress accrues only while the page is open and in the foreground.
+- Offline progress is part of the design: both income streams accrue while
+  the game is closed, capped at 24 hours, collected by tapping. See
+  [[Core Loop]]. Not implemented yet.
 
 ## Resources
 
