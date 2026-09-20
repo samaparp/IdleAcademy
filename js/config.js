@@ -130,11 +130,33 @@ const CONFIG = {
     },
   },
 
+  /* ---- Tabs ------------------------------------------------------------ */
+  /*
+   * Order here is the order they appear, three per row.
+   *
+   * A locked tab still shows its real label — unlike a locked skill, which
+   * hides its name. The player is meant to know a Hunt exists.
+   *
+   * UNLOCK RULES ARE NOT DESIGNED: `unlocked` is a static flag that nothing
+   * in the game flips.
+   */
+  tabs: [
+    { id: 'character', label: 'Char', panelId: 'panel-character', unlocked: true },
+    { id: 'skill', label: 'Skill', panelId: 'panel-skill', unlocked: true },
+    { id: 'inventory', label: 'Inv', panelId: 'panel-inventory', unlocked: true },
+    { id: 'hunt', label: 'Hunt', panelId: 'panel-hunt', unlocked: false },
+    { id: 'travel', label: 'Travel', panelId: 'panel-travel', unlocked: true },
+    { id: 'settings', label: 'Settings', panelId: 'panel-settings', unlocked: true },
+  ],
+  defaultTabId: 'skill',
+
   /* ---- UI text --------------------------------------------------------- */
   ui: {
     // Shown in place of a locked skill's name and button.
     lockedSkillName: '???',
     lockedSkillLabel: 'Locked',
+    // Appended to a locked tab's accessible name.
+    lockedTabSuffix: ' (locked)',
   },
 
   /* ---- Test tools ------------------------------------------------------ */

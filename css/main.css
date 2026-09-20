@@ -72,14 +72,14 @@ body {
 /* ---- Tabs ------------------------------------------------------------- */
 
 .tabs {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   max-width: 560px;
   margin: 0 auto;
 }
 
 .tab {
-  flex: 1;
   min-height: 48px;
   padding: 10px 8px;
   border: 1px solid var(--border);
@@ -102,6 +102,15 @@ body {
 .tab:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* A locked tab keeps its label: the player should know the section exists. */
+.tab--locked {
+  border-style: dashed;
+  background: transparent;
+  color: var(--text-muted);
+  opacity: 0.65;
+  cursor: default;
 }
 
 .panel {

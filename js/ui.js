@@ -11,7 +11,6 @@ const UI = {
   el: {},
   cards: {},      // skill id -> its elements
   cache: {},
-  tabButtons: [],
   resetArmed: false,
   resetTimer: null,
 
@@ -33,7 +32,7 @@ const UI = {
 
     this.el.nameInput.maxLength = CONFIG.character.maxNameLength;
 
-    this.initTabs();
+    this.buildTabs();
     this.buildSkillList();
     this.bindName();
     this.buildSpeedButtons();
@@ -46,36 +45,60 @@ const UI = {
   /* ---- Tabs ------------------------------------------------------------ */
 
   /*
-   * Each tab button's aria-controls names its panel, so the markup stays the
-   * single source of truth and this code needs no list of its own.
+   * Tabs are built from CONFIG.tabs, three per row. A locked tab keeps its
+   * real label — the player is meant to know the section exists — but is
+   * disabled, so it cannot be opened or focused.
    */
-  initTabs() {
-    this.tabButtons = [...this.el.tabs.querySelectorAll('[role="tab"]')];
+  buildTabs() {
+    for (const tab of CONFIG.tabs) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tab';
+      button.id = 'tab-' + tab.id;
+      button.textContent = tab.label;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-controls', tab.panelId);
+      button.setAttribute('aria-selected', 'false');
+      button.tabIndex = -1;
 
-    this.tabButtons.forEach((button, index) => {
-      button.addEventListener('click', () => this.selectTab(index));
-      button.addEventListener('keydown', (event) => {
-        const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
-        if (!step) return;
-        event.preventDefault();
-        const next = (index + step + this.tabButtons.length) % this.tabButtons.length;
-        this.selectTab(next);
-        this.tabButtons[next].focus();
-      });
-    });
+      if (tab.unlocked) {
+        button.addEventListener('click', () => this.selectTab(tab.id));
+        button.addEventListener('keydown', (event) => this.onTabKey(event, tab.id));
+      } else {
+        button.disabled = true;
+        button.classList.add('tab--locked');
+        button.setAttribute('aria-label', tab.label + CONFIG.ui.lockedTabSuffix);
+      }
 
-    const selected = this.tabButtons.findIndex((b) => b.getAttribute('aria-selected') === 'true');
-    this.selectTab(selected === -1 ? 0 : selected);
+      this.el.tabs.appendChild(button);
+    }
+
+    this.selectTab(CONFIG.defaultTabId);
   },
 
-  selectTab(index) {
-    this.tabButtons.forEach((button, i) => {
-      const selected = i === index;
+  // Arrow keys move between the tabs that can actually be opened.
+  onTabKey(event, fromId) {
+    const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+    if (!step) return;
+    event.preventDefault();
+
+    const open = CONFIG.tabs.filter((tab) => tab.unlocked);
+    const index = open.findIndex((tab) => tab.id === fromId);
+    const next = open[(index + step + open.length) % open.length];
+
+    this.selectTab(next.id);
+    document.getElementById('tab-' + next.id).focus();
+  },
+
+  selectTab(tabId) {
+    for (const tab of CONFIG.tabs) {
+      const selected = tab.unlocked && tab.id === tabId;
+      const button = document.getElementById('tab-' + tab.id);
       button.setAttribute('aria-selected', String(selected));
-      button.tabIndex = selected ? 0 : -1;
       button.classList.toggle('is-selected', selected);
-      document.getElementById(button.getAttribute('aria-controls')).hidden = !selected;
-    });
+      if (tab.unlocked) button.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.panelId).hidden = !selected;
+    }
   },
 
   /* ---- Character name -------------------------------------------------- */

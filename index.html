@@ -12,14 +12,7 @@
 <body>
   <header class="app-header">
     <h1 class="app-title">Idle Academy</h1>
-    <nav class="tabs" role="tablist" aria-label="Sections" id="tabs">
-      <button type="button" class="tab" role="tab" id="tab-character"
-              aria-controls="panel-character" aria-selected="false" tabindex="-1">Character</button>
-      <button type="button" class="tab" role="tab" id="tab-skill"
-              aria-controls="panel-skill" aria-selected="true">Skill</button>
-      <button type="button" class="tab" role="tab" id="tab-settings"
-              aria-controls="panel-settings" aria-selected="false" tabindex="-1">Settings</button>
-    </nav>
+    <nav class="tabs" role="tablist" aria-label="Sections" id="tabs"></nav>
   </header>
 
   <main class="app-main">
@@ -59,6 +52,24 @@
     <section class="panel" id="panel-skill" role="tabpanel"
              aria-labelledby="tab-skill" tabindex="0">
       <div class="skill-list" id="skill-list"></div>
+    </section>
+
+    <!-- Inventory: nothing designed yet. -->
+    <section class="panel" id="panel-inventory" role="tabpanel"
+             aria-labelledby="tab-inventory" tabindex="0" hidden>
+      <p class="placeholder">Nothing here yet.</p>
+    </section>
+
+    <!-- Hunt: locked. The panel exists so unlocking it is a config change. -->
+    <section class="panel" id="panel-hunt" role="tabpanel"
+             aria-labelledby="tab-hunt" tabindex="0" hidden>
+      <p class="placeholder">Nothing here yet.</p>
+    </section>
+
+    <!-- Travel: nothing designed yet. -->
+    <section class="panel" id="panel-travel" role="tabpanel"
+             aria-labelledby="tab-travel" tabindex="0" hidden>
+      <p class="placeholder">Nothing here yet.</p>
     </section>
 
     <!-- Settings: test tools live here for now. -->

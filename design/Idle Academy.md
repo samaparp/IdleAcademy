@@ -22,16 +22,40 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Screen layout
 
-Three tabs across the top of the page, mobile-first:
+Six tabs, three per row, mobile-first:
 
-| Tab           | Holds                                                          |
-| ------------- | -------------------------------------------------------------- |
-| **Character** | One field: Name, editable via a pencil button                   |
-| **Skill**     | Skills, grouped by category. The only category is [[Research]]  |
-| **Settings**  | Test tools for now                                              |
+```
+Char  | Skill  | Inv
+Hunt  | Travel | Settings
+```
+
+| Tab          | State    | Holds                                             |
+| ------------ | -------- | ------------------------------------------------- |
+| **Char**     | Open     | [[Character]] — Name                              |
+| **Skill**    | Open     | Skills by category. Only [[Research]] so far      |
+| **Inv**      | Open     | Empty                                             |
+| **Hunt**     | Locked   | Empty                                             |
+| **Travel**   | Open     | Empty — locations                                 |
+| **Settings** | Open     | Test tools                                        |
+
+> [!important] A locked tab still shows its name
+> **Hunt** is locked but reads "Hunt", not `???`. The player is meant to
+> know a hunt exists and is not yet available. This is the opposite of a
+> locked skill, which hides its name — the difference is deliberate:
+> a section is a promise, a skill is a surprise.
+>
+> The locked tab is dashed, dimmed and disabled, so it cannot be opened or
+> focused, and arrow-key navigation skips it.
+
+> [!danger] No unlock rule exists yet
+> `unlocked` in `CONFIG.tabs` is a static flag that nothing in the game
+> flips, exactly as with skills.
 
 > [!note] Assumptions
-> **Skill** opens by default. Test tools live in **Settings**.
+> **Skill** opens by default. Tab labels are abbreviated to fit three per
+> row — **Char** and **Inv** rather than Character and Inventory.
+> **Travel** is the tab name for locations; say if it should read
+> "Locations".
 
 ## The player
 
