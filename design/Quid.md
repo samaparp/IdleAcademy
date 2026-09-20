@@ -40,11 +40,10 @@ available later without contradicting anything.
 > **Selling things is the main source of quid.** A [[Hunt]] also pays some,
 > but the hunt's real yield is materials, not money.
 
-> [!warning] Selling is not designed
-> There is no market, vendor or shop yet — not in the design and not in the
-> code. What can be sold, where, at what price, and whether prices move are
-> all open. This is now the **largest undesigned system** in the game, and
-> the economy hangs off it.
+> [!warning] Selling is barely designed
+> Selling happens at the **market in [[Stennard]]**, which is open from the
+> start. That is all that is settled. What can be sold, at what price, and
+> whether prices move are all open, and the economy hangs off the answers.
 
 > [!question] Undecided
 > - **What can be sold** — research outputs, hunt materials, both?

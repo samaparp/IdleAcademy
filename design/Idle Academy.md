@@ -14,7 +14,9 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 ## Design notes
 
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
-- [[Hunt]] — stages, locations, and the hunting ground that pays out.
+- [[Hunt]] — stages and the hunting ground that pays out.
+- [[Locations]] — the Travel tab, and how places are revealed.
+- [[Stennard]] — the starting town.
 - [[Combat]] — how a stage is cleared. Not designed.
 - [[Character]] — who the player is, and the Character tab.
 - [[Research]] — the first skill category, and its tier ladder.
@@ -39,7 +41,7 @@ Hunt  | Travel | Settings
 | **Skill**    | Open     | Skills by category. Only [[Research]] so far      |
 | **Inv**      | Open     | Empty                                             |
 | **Hunt**     | Locked   | Empty                                             |
-| **Travel**   | Open     | Empty — locations                                 |
+| **Travel**   | Open     | Locations — see [[Locations]]                     |
 | **Settings** | Open     | Test tools                                        |
 
 > [!important] A locked tab still shows its name

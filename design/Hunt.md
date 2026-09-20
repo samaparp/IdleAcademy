@@ -86,6 +86,7 @@ least **4 hours** have accrued — see [[Idle Academy]].
 > [!question] Undecided
 > - **One hunting ground at a time?** Everything so far assumes yes, but it
 >   has not been stated.
-> - **Does travelling to a location cost anything** — time, quid, an
->   unlock — or is it a free menu once the location is known?
+> - **Does hunting require being at the location?** If income only accrues
+>   while the player is standing there, travelling to sell something stops
+>   the money. See [[Locations]]. Travel itself is free.
 > - Whether anything **other than the Hunt tab** should ever raise a dot.
