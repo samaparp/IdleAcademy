@@ -41,9 +41,27 @@
 
 * { box-sizing: border-box; }
 
+/* Anything the player types in must stay selectable. */
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
 html { -webkit-text-size-adjust: 100%; }
 
+/*
+ * This is a game, not a document: text is not selectable, and a long press
+ * does not raise the iOS copy/look-up callout. Safari needs the -webkit-
+ * prefix for both, which is why the unprefixed property alone did nothing.
+ * Form fields opt back in below.
+ */
 body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
   margin: 0;
   padding: 0 0 env(safe-area-inset-bottom);
   background: var(--bg);
@@ -337,7 +355,6 @@ body {
   cursor: pointer;
   overflow: hidden;
   touch-action: manipulation;
-  user-select: none;
 }
 
 .action:active { transform: scale(0.99); }

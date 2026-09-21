@@ -112,6 +112,13 @@ They are not variations of one system.
 - Tabs for list indentation (Obsidian default).
 - **Keep the notes updated whenever the spec changes.** A spec change means
   editing the design note *and* `js/config.js` together.
+- **`design/Open Questions.md` is the index of everything undecided.**
+  When the designer answers something, update **both** in the same commit:
+  write the answer into the topic note, and **delete the item** from the
+  index. When a new question appears, add it to both.
+  An index that drifts is worse than no index, because it is trusted.
+- Open Questions is grouped by **what it blocks**, not by topic. New items
+  go in the group that matches what they hold up.
 
 ## File structure
 
