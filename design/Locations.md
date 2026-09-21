@@ -10,6 +10,15 @@ status: being designed
 The **Travel** tab: a list of places to go. Each holds venues, hunting
 grounds, or both.
 
+> [!important] The tab is a list; locations open their own pages
+> Travel is an index. Many locations are not just an entry in it — they
+> **open to a full page of their own**, such as the Labour Exchange in
+> [[Jobs]].
+>
+> This is the pattern that keeps the tab bar from growing: a feature the
+> player returns to often does not need a tab, it needs a location page
+> and a way to reach it quickly.
+
 > [!abstract] Summary
 > The player starts in [[Stennard]]. Travel is **free** — no cost in time,
 > money or anything else. Further locations are **hidden until revealed**.

@@ -25,12 +25,28 @@ status: being designed
 - Unlocked by **default** — one of the three things available at the start.
 - A real Victorian institution for matching people to work, which is why
   the name fits.
-- Carries the **notification dot** when something needs attention — see
-  [[Idle Academy]].
+- **Not a tab.** It is a **location** in [[Locations]], opening to its own
+  page. See the quest tracker below for how the player gets to it quickly.
+- The page is headed **"Situations Vacant"** — the standard Victorian
+  newspaper heading for job listings.
 
-> [!note] Period alternative for "job offers"
-> **Situations vacant** was the standard Victorian newspaper heading for
-> job listings. More flavour, less clarity — worth knowing it exists.
+## The quest tracker
+
+> [!important] A thin line at the very bottom of the screen
+> - **One quest at a time**, shown as a slim progress line with small text.
+> - When several are active, it shows the one **closest to completion**.
+> - **Tapping it opens the Labour Exchange page.**
+> - Deliberately minimal — it is a wayfinding aid, not a panel.
+>
+> This replaces the idea of a permanent Labour Exchange tab. Quests are
+> returned to constantly, but a tracker gives them presence without
+> spending a tab on them.
+
+> [!question] Undecided
+> - What the tracker shows when **no quest is active** — hidden, or a
+>   prompt to go and take one.
+> - Whether it sits above or below the safe-area inset on a phone. It must
+>   clear the home indicator either way.
 
 ## Quest types
 
@@ -64,6 +80,36 @@ Every quest has six:
 > The **Labour Exchange** is the venue. The **giver** is whoever posted the
 > job — the Writer's Union, a private client, a society. One board, many
 > givers.
+
+## Completion and claiming
+
+> [!important] Rewards are claimed manually
+> A completed quest is **not** paid out automatically. The player taps a
+> **claim button**.
+
+| Type        | When it completes                                      |
+| ----------- | ------------------------------------------------------ |
+| **Craft**   | The moment the counter is met — **completed forever**  |
+| **Hunt**    | The moment the counter is met — **completed forever**  |
+| **Collect** | **Checked at the instant Claim is tapped**             |
+
+> [!important] Collect quests are "hand over", not "collect"
+> A collect quest **consumes the items**, which is why it checks the
+> inventory at the moment of claiming rather than banking a completion.
+>
+> So if the player gathers 30 [[Notes]], then sells or spends them before
+> claiming, **the quest is not complete** and they must gather them again.
+>
+> **The flavour text must say so.** The wording is *hand over thirty
+> notes*, never *collect thirty notes* — the language is what tells the
+> player the items are going away. This is a writing rule, not just a
+> mechanical one.
+
+> [!note] A collect quest can become un-ready
+> Craft and hunt completions are permanent once earned. A collect quest's
+> readiness **comes and goes** with the contents of the inventory, so
+> anything that reacts to "ready to claim" — the notification dot, the
+> tracker — has to handle it switching back off.
 
 ## Visibility
 

@@ -39,12 +39,24 @@ Char  | Skill  | Inv
 Hunt  | Travel | Settings
 ```
 
-> [!warning] Two more tabs are now wanted, and the grid does not fit them
-> [[Jobs]] wants a **Labour Exchange** tab and [[Apartment]] wants an
-> **Apartment** tab. That makes **eight**, which a 2x3 grid cannot hold.
->
-> Options: four per row in two rows, three rows of three with one gap, or
-> demoting one of them to a screen inside **Travel**. **Undecided.**
+> [!info] The Labour Exchange does not get a tab
+> It is a **location page** reached through Travel, with a **quest
+> tracker** along the bottom of the screen for quick access — see [[Jobs]].
+> That is the general pattern: often-used features get a location page and
+> a shortcut, not a tab.
+
+> [!question] Does the Apartment still need a tab?
+> [[Apartment]] was given its own tab before that pattern was settled.
+> Following it, the apartment would be a **location page** like the
+> Exchange, keeping the tab bar at six. **Undecided.**
+
+### The quest tracker
+
+A **thin line at the very bottom of the screen**, present across tabs:
+small text, one quest's progress, tapped to open the Labour Exchange. See
+[[Jobs]].
+
+> [!warning] Not implemented
 
 | Tab          | State    | Holds                                             |
 | ------------ | -------- | ------------------------------------------------- |
