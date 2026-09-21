@@ -35,8 +35,8 @@ grounds, or both.
 
 | Location      | Region        | Holds                          | State     |
 | ------------- | ------------- | ------------------------------ | --------- |
-| **Apartment** | Stennard      | The player's room              | **Unlocked by default** |
-| [[Stennard]]  | Stennard      | Market, workshop, guild, apothecary | Revealed later |
+| **Apartment** | Stennard      | The player's room                   | **Unlocked by default** |
+| [[Stennard]]  | Stennard      | Market, workshop, Labour Exchange, apothecary | **Unlocked by default** |
 | The mine      | Elsewhere     | Mining                         | Unrevealed. **On the critical path** — see [[Opening]] |
 
 ## Travel

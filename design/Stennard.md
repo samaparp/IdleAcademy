@@ -11,8 +11,9 @@ The starting location of [[Idle Academy]], and the town the [[Character]]
 works out of.
 
 > [!abstract] Summary
-> Everything except the mine is here. The **market** is open from the
-> start; the rest is not yet decided.
+> **Unlocked by default.** Everything except the mine is here, including
+> the player's apartment. The **market** and the **Labour Exchange** are
+> open from the start; the rest is not yet decided.
 
 ## Venues
 
@@ -20,7 +21,8 @@ works out of.
 | -------------- | ---------------------------------------------------- | ----------- |
 | **Market**     | Buying and selling. The main source of [[Quid]]      | Open from the start. **On the critical path** |
 | **Workshop**   | Assembling things from research and materials        | **On the critical path** — see [[Opening]] |
-| **Guild**      | Missions, for rewards and for unlocking features and locations | Proposed |
+| **Labour Exchange** | Job offers — see [[Jobs]]                       | **Open from the start. On the critical path** |
+| **Apartment**  | The player's room                                    | **Open from the start** |
 | **Apothecary** | Alchemy. Explicitly later                            | Proposed    |
 
 > [!important] Assembly is step two, not a later system
