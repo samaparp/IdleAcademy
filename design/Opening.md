@@ -12,12 +12,13 @@ before the game opens up.
 
 > [!abstract] The critical path — revised
 > **Unlocked by default:** [[Study]], one location (the apartment room),
-> and the quest board.
+> and the **Labour Exchange** — see [[Jobs]].
 >
 > ```
 > Study  →  Notes
->        →  complete the Notes crafting job   (~30 Notes)
->        →  granted a Title: Novella writer   →  Jobs
+>        →  complete the first job offer      (collect 30 Notes)
+>        →  paid in Quid, granted the Title
+>          "Fledgling Writer"                 →  Jobs
 >        →  the Writer job pays Quid          →  enough for the next tools
 >        →  buy tools                         →  Market
 >        →  equip                             →  Character
@@ -38,8 +39,7 @@ before the game opens up.
 > | Step        | System                          | State             |
 > | ----------- | ------------------------------- | ----------------- |
 > | Study       | [[Study]] skill                 | **Built**         |
-> | Quest board | [[Jobs]]                        | Not designed      |
-> | Craft       | Crafting                        | Not designed      |
+> | Labour Exchange | [[Jobs]]                    | Not designed      |
 > | Title       | [[Jobs]]                        | Not designed      |
 > | Buy         | Market                          | Not designed      |
 > | Inventory   | Inv tab                         | Empty placeholder |
