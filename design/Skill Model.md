@@ -27,10 +27,11 @@ just a skill.
 does not declare the others behaves as though success is 100% and nothing
 is preserved.
 
-> [!important] The multiplier is not a skill setting
-> It is **always applied**, and it does not live in `CONFIG.skills`. It is
-> the product of whatever buffs the [[Character]] has accumulated that act
-> on that skill — from Titles, furniture, equipment and anything else.
+> [!important] The multiplier is per skill, but never hardcoded
+> It is calculated **separately for each skill** and is **always on**. It
+> is not a fixed number in `CONFIG.skills` — it is the product of whatever
+> buffs the [[Character]] has accumulated **that act on that skill**, from
+> Titles, furniture, equipment and anything else.
 >
 > The character currently has no buffs, so it resolves to **x1**.
 >
@@ -46,6 +47,11 @@ is preserved.
 >   just time.
 > - **Buffs are multiplicative.** +10% and +20% give **x1.32**, not x1.30.
 > - **Offline rolls honestly**, tick by tick. No expected-value shortcut.
+> - **Failure and preservation are independent rolls.** A tick can fail
+>   and still preserve its inputs, or succeed and consume them. The two
+>   never gate each other.
+> - **Output is always a whole number.** There is no such thing as 1.32
+>   notes.
 
 ## Running out of materials
 
@@ -63,12 +69,52 @@ A crafting skill stops when its inputs run out.
 
 ## Open questions
 
-> [!question] Undecided
-> - **Can a tick fail and still preserve its inputs?** If the two rolls
->   are independent, yes. If preserve only applies to a successful tick,
->   no. A failed tick consumes inputs either way.
-> - Is the multiplier applied **before or after** any rounding of the
->   output?
+## Rounding the multiplied output
+
+Output must be whole. `1 x 1.32` cannot be 1.32 notes, so something has to
+give.
+
+> [!question] Under debate
+> The proposal on the table is **round at the half**: x1.32 always yields
+> 1, x1.6 always yields 2. The alternative floated was **round down**.
+>
+> **Both have the same flaw**, and it lands hardest exactly where the
+> player is most sensitive to it — the early game, where base outputs are
+> 1:
+>
+> | Multiplier | Round half | Floor | What the player sees |
+> | ---------- | ---------- | ----- | -------------------- |
+> | x1.0       | 1          | 1     | —                    |
+> | x1.4       | 1          | 1     | **a +40% buff doing nothing** |
+> | x1.6       | 2          | 1     | +60% suddenly worth +100%, or still nothing |
+> | x1.99      | 2          | **1** | floor: a +99% buff doing nothing |
+>
+> A buff that visibly changes no number is worse than no buff. And the
+> jump at the threshold overpays — x1.6 paying double is as wrong as
+> x1.4 paying nothing.
+
+> [!tip] Recommended: carry the remainder
+> Keep a running fraction per skill. A x1.32 multiplier on a base of 1
+> yields **1, 1, 1, 2, 1, 1, 1, 2 …** — exactly 1.32 per tick averaged,
+> with every output a whole number.
+>
+> - **Deterministic.** No stochastic rounding, no RNG, nothing the player
+>   cannot verify by watching.
+> - **Exact.** Nothing is lost to rounding and nothing is invented.
+> - **Visible.** A +32% buff is worth +32%, immediately, rather than
+>   nothing until some threshold is crossed.
+> - **Already the house pattern** — it is the same accumulator as the
+>   partial tick.
+>
+> The remainder resets when the skill is stopped or switched, exactly as
+> the partial tick does, so there is one rule to remember rather than two.
+>
+> The other expected-value-preserving option is **rolling the fraction**
+> — a 32% chance of a second note — but that adds randomness where none
+> is needed and makes small numbers feel noisy.
+
+> [!question] Still undecided
+> - Whether to carry the remainder, round at the half, or floor.
 
 > [!note] Offline rolls honestly, and it is cheap
 > Measured: **86,400 ticks resolve in ~22 ms** with two rolls, the

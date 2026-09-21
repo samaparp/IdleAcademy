@@ -102,10 +102,12 @@ They are not variations of one system.
 Measured at ~22 ms for 86,400 ticks, so the only way to lose that headroom
 is allocating an object per tick. Keep the loop to plain numbers.
 
-**Buffs are multiplicative** (+10% and +20% give x1.32), a **failed tick
-still consumes its inputs**, and the output **multiplier is always on** —
-it is the product of the character's buffs, not a per-skill config value.
-See `design/Skill Model.md`.
+**Buffs are multiplicative** (+10% and +20% give x1.32). A **failed tick
+still consumes its inputs**. **Failure and preservation are independent
+rolls** — a tick can fail and still preserve. The output **multiplier is
+always on**, calculated per skill from the character's accumulated buffs
+rather than hardcoded in `CONFIG.skills`, and **output is always a whole
+number**. See `design/Skill Model.md`.
 
 **Neither is implemented.** `lastPlayed` exists to support the skill side.
 
