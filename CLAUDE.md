@@ -98,6 +98,15 @@ They are not variations of one system.
   is **disabled below one minute** of accrual.
 - Switching hunting grounds **auto-claims** whatever is banked first.
 
+**Offline rolls honestly**, tick by tick — no expected-value shortcut.
+Measured at ~22 ms for 86,400 ticks, so the only way to lose that headroom
+is allocating an object per tick. Keep the loop to plain numbers.
+
+**Buffs are multiplicative** (+10% and +20% give x1.32), a **failed tick
+still consumes its inputs**, and the output **multiplier is always on** —
+it is the product of the character's buffs, not a per-skill config value.
+See `design/Skill Model.md`.
+
 **Neither is implemented.** `lastPlayed` exists to support the skill side.
 
 > The engine currently uses `requestAnimationFrame`, which the browser

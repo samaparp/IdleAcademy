@@ -20,12 +20,32 @@ just a skill.
 | **Output**         | What it produces                                 | All     |
 | **XP**             | Granted per tick                                 | All     |
 | **Success chance** | Percentage. A failed tick produces nothing       | Later skills |
-| **Multiplier**     | Accumulated buffs, multiplied into the output    | Later skills |
+| **Multiplier**     | Accumulated buffs, multiplied into the output    | **Always on** |
 | **Preserve chance**| Percentage chance the inputs are **not** consumed | Later skills |
 
 [[Study]] has tick length, output and XP, and nothing else. A skill that
-does not declare the others behaves as though success is 100%, the
-multiplier is 1, and nothing is preserved.
+does not declare the others behaves as though success is 100% and nothing
+is preserved.
+
+> [!important] The multiplier is not a skill setting
+> It is **always applied**, and it does not live in `CONFIG.skills`. It is
+> the product of whatever buffs the [[Character]] has accumulated that act
+> on that skill — from Titles, furniture, equipment and anything else.
+>
+> The character currently has no buffs, so it resolves to **x1**.
+>
+> This needs a resolver — one function that answers "what is the
+> multiplier for this skill right now", reading character state rather
+> than config. Every buff source registers with it, so no skill ever
+> hardcodes a bonus.
+
+## Settled rules
+
+> [!info] These apply to every skill, not per skill
+> - **A failed tick consumes its inputs.** Failure costs materials, not
+>   just time.
+> - **Buffs are multiplicative.** +10% and +20% give **x1.32**, not x1.30.
+> - **Offline rolls honestly**, tick by tick. No expected-value shortcut.
 
 ## Running out of materials
 
@@ -43,33 +63,18 @@ A crafting skill stops when its inputs run out.
 
 ## Open questions
 
-> [!question] Order of operations — has to be settled once, for all skills
-> A tick with inputs, a success roll and a preserve roll can resolve in
-> several orders, and they give different games:
-> - **Does a failed tick still consume its inputs?** In most games it
->   does, and that is the cost of failure. If it does not, failure costs
->   only time.
-> - **Can a tick fail and still preserve?** If the two rolls are
->   independent, yes. If preserve only applies on success, no.
-> - Is the multiplier applied to the output **before or after** anything
->   rounds?
+> [!question] Undecided
+> - **Can a tick fail and still preserve its inputs?** If the two rolls
+>   are independent, yes. If preserve only applies to a successful tick,
+>   no. A failed tick consumes inputs either way.
+> - Is the multiplier applied **before or after** any rounding of the
+>   output?
 
-> [!question] How do buffs stack?
-> "Accumulated buffs multiplied to output" needs one rule: do several
-> buffs **add up and then multiply once** (+10% and +20% becomes x1.3), or
-> **multiply together** (x1.1 x 1.2 = x1.32)? The difference compounds
-> badly over a whole game, so it should be decided before there are
-> several buffs.
-
-> [!danger] Success chance breaks determinism
-> Everything in the game so far is deterministic, including [[Combat]] by
-> explicit decision. A percentage success chance introduces **randomness
-> into skills**, and skills resolve **offline**.
+> [!note] Offline rolls honestly, and it is cheap
+> Measured: **86,400 ticks resolve in ~22 ms** with two rolls, the
+> multiplier, XP and level-up checks in the loop. A 100 ms tick over 24
+> hours — 864,000 ticks — took ~25 ms. That is a server CPU, but the
+> margin against a half-second budget is roughly twentyfold.
 >
-> That means 24 hours away is resolved by rolling thousands of times that
-> the player never sees. Rolling honestly is cheap and fine — but the
-> player cannot verify it, and a run of bad luck is indistinguishable
-> from a bug.
->
-> Worth deciding deliberately: **roll every tick**, or **use the expected
-> value for offline** and roll only while the player is watching.
+> The one way to lose that margin is **allocating an object per tick**.
+> Keep the loop to plain numbers and it stays trivial.
