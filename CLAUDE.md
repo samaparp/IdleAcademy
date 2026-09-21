@@ -3,6 +3,13 @@
 Text-based idle game: a Victorian monster hunter who studies his quarry.
 Skilling, crafting, levelling. No graphics.
 
+> **The pillar.** The game represents **a character pursuing careers**.
+> The player picks a path, masters skills, and takes the titles that go
+> with them. It is **idle** and **minimal** throughout — no graphics, no
+> busywork, no mechanic that demands attention rather than earning it.
+> When a design choice is unclear, the one that keeps it idle and minimal
+> is usually right.
+
 ## Roles
 
 - **The user is the game designer.** Claude's role is implementation.

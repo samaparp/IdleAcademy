@@ -6,7 +6,13 @@ tags:
 
 # Idle Academy
 
-Text-based mage idle game. Skilling, crafting and levelling. No graphics.
+Text-based idle game. Skilling, crafting and levelling. No graphics.
+
+> [!abstract] The pillar
+> A character **pursuing careers**. Pick a path, master its skills, earn
+> the titles that come with them, then pursue another. **Idle and
+> minimal** throughout — the game should never demand attention it has
+> not earned.
 
 > [!info] Status
 > Only one skill exists so far: [[Research]].
@@ -16,6 +22,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 - [[Opening]] — the critical path a new player walks, and the shortest
   route to a playable build.
 - [[Open Questions]] — every undecided thing, in one place.
+- [[Crafting]] — crafting is a skill, not a separate system.
 - [[Jobs]] — the quest board, Job Titles and their buffs.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.

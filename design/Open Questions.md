@@ -21,11 +21,11 @@ it blocks**, not by topic.
 These sit directly on the [[Opening]] chain. Nothing past Study can be
 built without them.
 
-- [ ] **What is the first craftable, and what does it take?** Notes into
-	writing, presumably at the [[Apartment]] writing desk. Confirm the
-	item and its recipe.
-- [ ] **Does crafting take time, or is it instant?** Everything else in
-	the game has a tick; crafting has no stated duration.
+- [ ] **The Writing skill's recipe** — how many [[Notes]] per tick, and
+	what it produces. Crafting is a skill, so this is tick length, input
+	cost and output.
+- [ ] **Are crafting inputs consumed at the start or end of a tick?** See
+	[[Crafting]]. Matters because partial ticks are discarded on switch.
 - [ ] **What does the first job offer pay?** "Some [[Quid]]" — enough for
 	the next tools, so the tool price sets it.
 - [ ] **When does the market unlock, and what does it sell first?**
