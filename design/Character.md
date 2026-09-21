@@ -20,9 +20,11 @@ Not a mage: the mage framing was dropped.
 
 One field so far.
 
-| Field    | Editable | Notes                                    |
-| -------- | -------- | ---------------------------------------- |
-| **Name** | Yes      | Pencil button, editable at any time      |
+| Field     | Editable | Notes                                              |
+| --------- | -------- | -------------------------------------------------- |
+| **Name**  | Yes      | Pencil button, editable at any time                |
+| **Job**   | —        | Current job. See [[Jobs]]                          |
+| **Title** | Yes      | A **list of unlocked Titles**; the player picks which is displayed. Cosmetic — buffs come from owning, not showing |
 
 **Name**
 - Starts as the placeholder **Hunter** (`CONFIG.character.defaultName`).

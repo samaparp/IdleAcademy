@@ -10,16 +10,25 @@ status: being designed
 The first few minutes of [[Idle Academy]] — the chain a new player walks
 before the game opens up.
 
-> [!abstract] The critical path
+> [!abstract] The critical path — revised
+> **Unlocked by default:** [[Study]], one location (the apartment room),
+> and the quest board.
+>
 > ```
 > Study  →  Notes
->        →  assemble into something sellable
->        →  sell it at the market          →  Quid
->        →  buy a pickaxe                  →  Inventory
->        →  equip it as a tool             →  Character
->        →  travel to the mine             →  Locations
->        →  unlock Mining
+>        →  complete the Notes crafting job   (~30 Notes)
+>        →  granted a Title: Novella writer   →  Jobs
+>        →  the Writer job pays Quid          →  enough for the next tools
+>        →  buy tools                         →  Market
+>        →  equip                             →  Character
+>        →  travel                            →  Locations
+>        →  unlock the next skill
 > ```
+
+> [!important] The first quid comes from a job, not from selling
+> This revises the earlier chain. **Selling is no longer step three** — a
+> quest reward is. The market is still needed to *buy* tools, but the
+> economy does not have to be designed before the game is playable.
 
 ## What this tells us
 
@@ -29,8 +38,9 @@ before the game opens up.
 > | Step        | System                          | State             |
 > | ----------- | ------------------------------- | ----------------- |
 > | Study       | [[Study]] skill                 | **Built**         |
-> | Assemble    | Crafting                        | Not designed      |
-> | Sell        | Market — see [[Quid]]           | Not designed      |
+> | Quest board | [[Jobs]]                        | Not designed      |
+> | Craft       | Crafting                        | Not designed      |
+> | Title       | [[Jobs]]                        | Not designed      |
 > | Buy         | Market                          | Not designed      |
 > | Inventory   | Inv tab                         | Empty placeholder |
 > | Equip       | Tool slot — see [[Character]]   | Not designed      |
@@ -79,4 +89,7 @@ before the game opens up.
 > - **Must the pickaxe stay equipped to keep mining**, or is equipping it
 >   once enough to unlock the skill permanently?
 > - **Are tools permanent once bought**, or do they wear out?
-> - **Can anything be sold anywhere**, or only at the market?
+> - **When does the market unlock?** Only Study, the apartment and the
+>   quest board are available by default, but the chain buys tools. So
+>   something has to open the market — the Writer title, a job reward, or
+>   revealing [[Stennard]] itself.

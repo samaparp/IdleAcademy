@@ -15,6 +15,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 - [[Opening]] — the critical path a new player walks, and the shortest
   route to a playable build.
+- [[Jobs]] — the quest board, Job Titles and their buffs.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.
 - [[Locations]] — the Travel tab, and how places are revealed.
@@ -58,6 +59,13 @@ Hunt  | Travel | Settings
 > [!danger] No unlock rule exists yet
 > `unlocked` in `CONFIG.tabs` is a static flag that nothing in the game
 > flips, exactly as with skills.
+
+### Flavour text
+
+Every **section** and **skill name** carries a short **flavour line
+underneath** — one or two lines, no more. Atmosphere, not instruction.
+
+> [!warning] Not implemented
 
 ### Notification dots
 
