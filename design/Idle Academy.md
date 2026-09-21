@@ -15,6 +15,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 - [[Opening]] — the critical path a new player walks, and the shortest
   route to a playable build.
+- [[Open Questions]] — every undecided thing, in one place.
 - [[Jobs]] — the quest board, Job Titles and their buffs.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.
@@ -45,10 +46,10 @@ Hunt  | Travel | Settings
 > That is the general pattern: often-used features get a location page and
 > a shortcut, not a tab.
 
-> [!question] Does the Apartment still need a tab?
-> [[Apartment]] was given its own tab before that pattern was settled.
-> Following it, the apartment would be a **location page** like the
-> Exchange, keeping the tab bar at six. **Undecided.**
+> [!info] The Apartment is not a tab, for now
+> It follows the same pattern: a **location page** reached through Travel.
+> The tab bar stays at six. **Revisit after playtesting** — what earns a
+> tab is a question for someone who has actually played it.
 
 ### The quest tracker
 

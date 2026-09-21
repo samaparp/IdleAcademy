@@ -129,8 +129,6 @@ for how a stage is cleared.
 > - **Is offline skill progress shown to the player?** It is granted rather
 >   than claimed, but "you gained 3,400 Notes while away" is information
 >   worth giving. Silent or summarised?
-> - Does a **partial tick** carry over, or is the remainder discarded on
->   each return?
 > - Does the speed multiplier in Test tools apply to offline resolution
 >   when testing it?
 > - See [[Hunt]] for the open questions on payouts, switching hunting

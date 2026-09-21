@@ -11,8 +11,9 @@ The [[Character]]'s room — a **sub-location inside [[Stennard]]**, and the
 only place he owns.
 
 > [!abstract] Summary
-> Unlocked by default. Has **its own tab**. Holds **furniture**, which is
-> **upgraded** with [[Quid]] and materials.
+> Unlocked by default. A **location page** reached through Travel — not a
+> tab, at least until playtesting says otherwise. Holds **furniture**,
+> which is **upgraded** with [[Quid]] and materials.
 
 ## Furniture
 

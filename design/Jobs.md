@@ -151,10 +151,5 @@ Every quest has six:
 ## Open questions
 
 > [!question] Undecided
-> - **Is the Labour Exchange a tab or a venue?** It is described as a tab,
->   but the tab bar is a fixed 2x3 grid of six. A seventh breaks the
->   layout. The alternative is a venue inside **Travel**.
-> - **Does a collect quest consume the items**, or only check that they
->   are there?
 > - Do quests repeat, expire, or complete once?
 > - What the Fledgling Writer buff actually does.
