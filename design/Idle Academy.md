@@ -20,6 +20,7 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 - [[Hunt]] — stages and the hunting ground that pays out.
 - [[Locations]] — the Travel tab, and how places are revealed.
 - [[Stennard]] — the starting town.
+- [[Apartment]] — the player's room, its own tab, and its furniture.
 - [[Combat]] — how a stage is cleared. Not designed.
 - [[Character]] — who the player is, and the Character tab.
 - [[Research]] — the first skill category, and its tier ladder.
@@ -31,12 +32,19 @@ Text-based mage idle game. Skilling, crafting and levelling. No graphics.
 
 ## Screen layout
 
-Six tabs, three per row, mobile-first:
+Six tabs today, three per row, mobile-first:
 
 ```
 Char  | Skill  | Inv
 Hunt  | Travel | Settings
 ```
+
+> [!warning] Two more tabs are now wanted, and the grid does not fit them
+> [[Jobs]] wants a **Labour Exchange** tab and [[Apartment]] wants an
+> **Apartment** tab. That makes **eight**, which a 2x3 grid cannot hold.
+>
+> Options: four per row in two rows, three rows of three with one gap, or
+> demoting one of them to a screen inside **Travel**. **Undecided.**
 
 | Tab          | State    | Holds                                             |
 | ------------ | -------- | ------------------------------------------------- |

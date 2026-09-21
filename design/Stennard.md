@@ -22,7 +22,7 @@ works out of.
 | **Market**     | Buying and selling. The main source of [[Quid]]      | Open from the start. **On the critical path** |
 | **Workshop**   | Assembling things from research and materials        | **On the critical path** — see [[Opening]] |
 | **Labour Exchange** | Job offers — see [[Jobs]]                       | **Open from the start. On the critical path** |
-| **Apartment**  | The player's room                                    | **Open from the start** |
+| [[Apartment]]  | The player's room — a **sub-location** with its own tab | **Open from the start** |
 | **Apothecary** | Alchemy. Explicitly later                            | Proposed    |
 
 > [!important] Assembly is step two, not a later system

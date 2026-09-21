@@ -65,7 +65,8 @@ before the game opens up.
 > materials.
 >
 > What Notes assemble into is **writing**: a monograph, a paper, a
-> pamphlet, a report. The [[Research]] ladder is documents all the way up
+> pamphlet, a novella. The [[Apartment]] confirms this — its first
+> furniture is a **writing desk**. The [[Research]] ladder is documents all the way up
 > — Notes, Sketches, Blueprints, Treatises — so selling written work is
 > the natural first trade.
 >
