@@ -26,9 +26,6 @@ built without them.
 	cost and output.
 - [ ] **Are crafting inputs consumed at the start or end of a tick?** See
 	[[Crafting]]. Matters because partial ticks are discarded on switch.
-- [ ] **How the multiplied output rounds** — carry the remainder, round at
-	the half, or floor. See [[Skill Model]]; it decides whether small
-	early-game buffs are visible at all.
 - [ ] **What does the first job offer pay?** Enough for the next tools, so
 	the tool price sets it.
 - [ ] **What does the market sell first?** Access is granted by the first

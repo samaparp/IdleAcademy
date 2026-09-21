@@ -106,8 +106,11 @@ is allocating an object per tick. Keep the loop to plain numbers.
 still consumes its inputs**. **Failure and preservation are independent
 rolls** — a tick can fail and still preserve. The output **multiplier is
 always on**, calculated per skill from the character's accumulated buffs
-rather than hardcoded in `CONFIG.skills`, and **output is always a whole
-number**. See `design/Skill Model.md`.
+rather than hardcoded in `CONFIG.skills`. **Output is always a whole
+number, and the fraction carries to the next tick** rather than being
+rounded away — x1.32 yields 1, 1, 1, 2, 1, 1, 1, 2 … The carried
+remainder **resets when the skill is interrupted**, exactly like the
+partial tick. See `design/Skill Model.md`.
 
 **Neither is implemented.** `lastPlayed` exists to support the skill side.
 

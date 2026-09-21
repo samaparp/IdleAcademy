@@ -51,7 +51,8 @@ is preserved.
 >   and still preserve its inputs, or succeed and consume them. The two
 >   never gate each other.
 > - **Output is always a whole number.** There is no such thing as 1.32
->   notes.
+>   notes — the fraction is **carried to the next tick**, not rounded
+>   away.
 
 ## Running out of materials
 
@@ -93,7 +94,7 @@ give.
 > jump at the threshold overpays — x1.6 paying double is as wrong as
 > x1.4 paying nothing.
 
-> [!tip] Recommended: carry the remainder
+> [!info] Decided: carry the remainder
 > Keep a running fraction per skill. A x1.32 multiplier on a base of 1
 > yields **1, 1, 1, 2, 1, 1, 1, 2 …** — exactly 1.32 per tick averaged,
 > with every output a whole number.
@@ -106,15 +107,18 @@ give.
 > - **Already the house pattern** — it is the same accumulator as the
 >   partial tick.
 >
-> The remainder resets when the skill is stopped or switched, exactly as
-> the partial tick does, so there is one rule to remember rather than two.
+> **The remainder resets when the skill is interrupted** — stopped or
+> switched — exactly as the partial tick does. One rule to remember
+> rather than two.
 >
-> The other expected-value-preserving option is **rolling the fraction**
-> — a 32% chance of a second note — but that adds randomness where none
-> is needed and makes small numbers feel noisy.
+> The other expected-value-preserving option was **rolling the fraction**
+> — a 32% chance of a second note — rejected because it adds randomness
+> where none is needed and makes small numbers feel noisy.
 
-> [!question] Still undecided
-> - Whether to carry the remainder, round at the half, or floor.
+> [!note] What this means for designing buffs
+> Because a +5% buff is worth exactly +5%, buffs can be **any size**.
+> Under threshold rounding they would have had to come in chunks big
+> enough to cross a line, or they would have done nothing at all.
 
 > [!note] Offline rolls honestly, and it is cheap
 > Measured: **86,400 ticks resolve in ~22 ms** with two rolls, the
