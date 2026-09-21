@@ -23,6 +23,7 @@ Text-based idle game. Skilling, crafting and levelling. No graphics.
   route to a playable build.
 - [[Open Questions]] — every undecided thing, in one place.
 - [[Crafting]] — crafting is a skill, not a separate system.
+- [[Skill Model]] — the anatomy of a skill tick.
 - [[Jobs]] — the quest board, Job Titles and their buffs.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.

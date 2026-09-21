@@ -26,9 +26,19 @@ built without them.
 	cost and output.
 - [ ] **Are crafting inputs consumed at the start or end of a tick?** See
 	[[Crafting]]. Matters because partial ticks are discarded on switch.
-- [ ] **What does the first job offer pay?** "Some [[Quid]]" — enough for
-	the next tools, so the tool price sets it.
-- [ ] **When does the market unlock, and what does it sell first?**
+- [ ] **Tick order of operations** — does a failed tick still consume its
+	inputs, can a tick fail and preserve at once, when does the multiplier
+	apply? See [[Skill Model]]. Settle once, for all skills.
+- [ ] **How buffs stack** — additive then multiplied once, or multiplied
+	together? Compounds badly if decided late.
+- [ ] **Does a success chance roll offline**, or does offline use the
+	expected value? Randomness the player cannot see is
+	indistinguishable from a bug.
+- [ ] **What does the first job offer pay?** Enough for the next tools, so
+	the tool price sets it.
+- [ ] **What does the market sell first?** Access is granted by the first
+	job offer — see [[Jobs]].
+- [ ] **What the Penny-a-liner title buffs.**
 - [ ] **What is the first tool, what does it cost, and what does it
 	unlock?** The chain says a pickaxe.
 - [ ] **How is the mine revealed?** Buying the pickaxe, a job offer, or

@@ -135,13 +135,34 @@ Every quest has six:
 
 ## The first quest
 
-| Field        | Value                                                    |
-| ------------ | -------------------------------------------------------- |
-| Name         | Compiling notes into a cosmic-horror novella (working)   |
-| Giver        | The Writer's Union                                       |
-| Condition    | **Collect 30 [[Notes]]**                                 |
-| Rewards      | Some [[Quid]], and the Title **Fledgling Writer**        |
-| Unlock       | Available at the start                                   |
+| Field        | Value                                                          |
+| ------------ | -------------------------------------------------------------- |
+| Name         | **Copy Wanted: Sensational**                                   |
+| Giver        | The Stennard Gazette                                           |
+| Flavour      | "Hand over thirty pages of notes. The Gazette will make something lurid of them, and you will see none of the credit." |
+| Condition    | **Hand over 30 [[Notes]]**                                     |
+| Rewards      | [[Quid]], the Title **Penny-a-liner**, and **access to the market** |
+| Unlock       | Available at the start                                         |
+
+> [!note] Why this one and not a crafting quest
+> It needs **only [[Study]]**, so the player reaches their first reward
+> before learning a second skill. A quest requiring a finished manuscript
+> would mean two skills before any payoff, which is a long cold open for
+> an idle game.
+>
+> The **Writing** skill is unlocked as part of the reward, so the player
+> learns it with money already in hand.
+
+> [!note] Penny-a-liner
+> A real Victorian term: a hack paid a penny per line of copy.
+> Period-exact, faintly pathetic, and about money — which is the point of
+> the first job. **Its buff is undecided.**
+
+> [!note] Period note on the genre
+> "Pulp" does not exist in 1888 — *Argosy* went all-fiction in 1896, and
+> the term is American. The British equivalents are **penny dreadful**
+> and **shilling shocker**; the latter is what *Jekyll and Hyde* (1886)
+> was sold as, two years before this game.
 
 > [!note] Genre, not name-dropping
 > The cosmic-horror flavour is a **genre** nod. Lovecraft is not

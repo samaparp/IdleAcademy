@@ -38,6 +38,12 @@ concept of yet.
 > all work exactly as they do now. A crafting skill is a normal skill with
 > a cost per tick.
 
+## Later skills carry more
+
+[[Study]] is the simplest possible skill. Later ones add a success
+chance, a multiplier from accumulated buffs, and a chance to preserve
+materials — see [[Skill Model]] for the full anatomy of a tick.
+
 ## Open questions
 
 > [!question] Undecided
