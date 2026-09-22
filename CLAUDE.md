@@ -129,6 +129,19 @@ partial tick. See `design/Skill Model.md`.
   ten ticks per real second).
 - A reset button that requires a **second tap to confirm**.
 
+## The world
+
+The game is set in **Devania**; the designer's world bible is the
+authority. `design/Geography.md` holds the location list.
+
+- **Fixed, never invented:** kingdoms, duchies, counties, cities, market
+  towns, the mountain range, rail lines, stations.
+- **Free to invent:** villages, hamlets, farms, woods, lanes, streets,
+  shops, inns.
+- **Names follow the region's layer** — Germanic in the west and south,
+  Indic in Arjunia, Welsh on the frontier. Never mixed within one name,
+  and **Welsh is never spoken**, only written on maps.
+
 ## Design docs
 
 - `design/` holds **Obsidian-compatible Markdown** notes.

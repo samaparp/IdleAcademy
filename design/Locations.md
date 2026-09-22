@@ -7,7 +7,9 @@ status: being designed
 
 # Locations
 
-The **Travel** tab: a list of places to go. Each holds venues, hunting
+The **Travel** tab: a list of places to go. The world's canonical places,
+regions and rail network are in [[Geography]] — **cities, towns and
+stations are fixed and must not be invented**. Each holds venues, hunting
 grounds, or both.
 
 > [!important] The tab is a list; locations open their own pages
@@ -46,7 +48,7 @@ grounds, or both.
 | ------------- | ------------- | ------------------------------ | --------- |
 | [[Apartment]] | Stennard      | The player's room. **Sub-location, and has its own tab** | **Unlocked by default** |
 | [[Stennard]]  | Stennard      | Market, workshop, Labour Exchange, apothecary | **Unlocked by default** |
-| The mine      | Elsewhere     | Mining                         | Unrevealed. **On the critical path** — see [[Opening]] |
+| The mine      | **Undecided** | Mining                         | Unrevealed. **On the critical path** — see [[Opening]] and the note in [[Geography]] |
 
 ## Travel
 

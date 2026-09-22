@@ -27,6 +27,8 @@ Text-based idle game. Skilling, crafting and levelling.
 - [[Jobs]] — the quest board, Job Titles and their buffs.
 - [[Core Loop]] — how time, resources, hunts and money feed each other.
 - [[Hunt]] — stages and the hunting ground that pays out.
+- [[Geography]] — the world's canonical places. Cities and stations are
+  fixed; shops and inns may be invented.
 - [[Locations]] — the Travel tab, and how places are revealed.
 - [[Stennard]] — the starting town.
 - [[Apartment]] — the player's room, its own tab, and its furniture.
