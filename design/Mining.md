@@ -11,7 +11,7 @@ The second skill the player reaches, and the end of the [[Opening]] chain.
 
 > [!abstract] Summary
 > Dug by hand with a pickaxe, at a mine in **Arjunia**, near but outside
-> Rupina. The first metal is **copper**.
+> Rupina. **Yields metal, not ore.** The first is **copper**.
 
 ## Where
 
@@ -31,6 +31,22 @@ the world describes them. See [[Geography]].
 > and builds at home in [[Stennard]]**, which is exactly the trade route
 > the world already runs.
 
+## Metal, not ore
+
+The skill produces **usable metal directly**. Smelting is **abstracted
+into the tick** — the assumption is that the player spends part of every
+dig at the furnace beside the workings.
+
+> [!note] The world already works this way
+> Arjunia is **extraction *and* primary metalworking** — "the raw and the
+> refined, sent south to be manufactured". A mine with its own furnace at
+> the mountain foot is what the world describes, not a shortcut around it.
+
+> [!important] Why it matters mechanically
+> No smelting skill, no ore resource, no second building. One tick, one
+> output. It keeps the [[Opening]] chain short and the slice buildable —
+> and the fiction covers it rather than papering over it.
+
 ## Copper first
 
 Copper is the right first metal on every axis:
@@ -45,13 +61,29 @@ Copper is the right first metal on every axis:
   then copper plus a second ore for an alloy, then iron and steel when
   the player has a furnace worth the name.
 
+## The metal ladder
+
+| Order | Metal      | Makes                                   |
+| ----- | ---------- | --------------------------------------- |
+| 1     | **Copper** | On its own, and the base of both alloys |
+| 2     | **Zinc**   | + copper = **brass**                    |
+| 3     | **Tin**    | + copper = **bronze**                   |
+| 4     | **Iron**   | The industrial tier. Steel beyond it    |
+
+> [!note] Zinc before tin is the right order for 1888
+> Brass is the material of the age — instruments, lanterns, fittings,
+> casings — and it is what a [[Character]] building his own equipment
+> would actually reach for. Bronze is the older, more archaic alloy, so
+> tin arriving second gives it the feel of a speciality rather than a
+> step up.
+
 > [!question] Undecided
-> - **Ore or metal?** Does the skill yield copper **ore** that must be
->   smelted, or usable copper directly? A smelting step is another skill;
->   skipping it is fewer moving parts.
-> - **What comes after copper** — tin for bronze, zinc for brass, or
->   straight to iron. Brass is the more 1888 answer and the more
->   steampunk one; bronze is archaic by this period.
 > - Tick length, XP and yield — see [[Skill Model]].
 > - Whether the pickaxe must **stay** equipped, and whether tools wear
 >   out.
+> - **Where alloys are made.** Brass and bronze need copper and a second
+>   metal combined, which is a crafting skill at the workbench and does
+>   not exist yet.
+> - Whether each metal is its own skill, or one Mining skill with a
+>   choice of what to dig. The [[Research]] ladder chose separate skills;
+>   this has not.

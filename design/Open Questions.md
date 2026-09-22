@@ -40,7 +40,8 @@ built without them.
 - [ ] **Must a tool stay equipped** to keep its skill working, or is
 	equipping it once enough?
 - [ ] **Do tools wear out**, or are they permanent once bought?
-- [ ] **Mining itself**: tick length, XP, what it yields.
+- [ ] **Mining's numbers**: tick length, XP, yield. It produces copper
+	metal directly — see [[Mining]].
 
 ## 2. The economy
 
@@ -79,6 +80,8 @@ anything**. Every `unlocked` flag is static config.
 	[[Apartment]].
 - [ ] **Hunt loot tables** — what each stage drops. This is where the
 	economy actually lives.
+- [ ] **Alloying** — brass and bronze need two metals combined at a
+	workbench. No such skill exists. See [[Mining]].
 - [ ] **Save export/import** — planned in [[Save System]], not built.
 
 ## 5. Overlaps to resolve

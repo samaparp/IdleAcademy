@@ -203,6 +203,9 @@ size of a category is never hidden.
 
 Nothing consumes any of them yet.
 
+[[Mining]] adds metals: **copper**, then zinc, tin and iron. They are
+mined as usable metal, not ore — smelting is abstracted into the tick.
+
 The currency is **[[Quid]]**. Nothing earns or spends it, so it is not in
 the config yet.
 
