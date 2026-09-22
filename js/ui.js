@@ -53,7 +53,7 @@ const UI = {
   applyIconTuning() {
     const root = document.documentElement;
     root.style.setProperty('--icon-stroke', String(CONFIG.icons.strokeWidth));
-    root.style.setProperty('--tab-icon-size', CONFIG.icons.tabSizePx + 'px');
+    root.style.setProperty('--tab-icon-scale', CONFIG.icons.tabIconScale * 100 + '%');
   },
 
   /* ---- Tabs ------------------------------------------------------------ */

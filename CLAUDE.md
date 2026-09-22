@@ -1,13 +1,12 @@
 # Idle Academy — project rules
 
 Text-based idle game: a Victorian monster hunter who studies his quarry.
-Skilling, crafting, levelling. No artwork — the one drawn thing is the
-monochrome line-icon set on the tab bar, see `design/Icons.md`.
+Skilling, crafting, levelling.
 
 > **The pillar.** The game represents **a character pursuing careers**.
 > The player picks a path, masters skills, and takes the titles that go
-> with them. It is **idle** and **minimal** throughout — no artwork, no
-> busywork, no mechanic that demands attention rather than earning it.
+> with them. It is **idle** and **minimal** throughout — no busywork, no
+> mechanic that demands attention rather than earning it.
 > When a design choice is unclear, the one that keeps it idle and minimal
 > is usually right.
 

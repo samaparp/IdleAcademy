@@ -140,8 +140,14 @@ body {
  * fallbacks here only matter if a stylesheet loads without the scripts.
  */
 .tab__icon {
-  width: var(--tab-icon-size, 26px);
-  height: var(--tab-icon-size, 26px);
+  /*
+   * Sized as a share of the tab, so it grows with the button rather than
+   * sitting at a fixed size. The tab is square, so a square icon follows
+   * from the width alone.
+   */
+  width: var(--tab-icon-scale, 62%);
+  height: auto;
+  aspect-ratio: 1;
   display: block;
   fill: none;
   stroke: currentColor;

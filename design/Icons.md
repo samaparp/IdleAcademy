@@ -45,10 +45,21 @@ stylesheet, and the icons follow it.
 
 ## Where the values live
 
-`CONFIG.icons` holds the stroke weight and the tab icon size. `js/ui.js`
+`CONFIG.icons` holds the stroke weight and the tab icon scale. `js/ui.js`
 pushes them onto the root element as custom properties at boot, because
 CSS cannot read `CONFIG`. The stylesheet carries the same values as
 fallbacks, which only take effect if the scripts fail to load.
+
+The tab icon is sized as a **share of the tab**, not in pixels, because the
+tab is already square and already scales with the screen. A fixed pixel
+size would leave the icon lost on a large phone and cramped on a small one.
+
+> [!note] Enlarging the icon thickens the stroke
+> `strokeWidth` is in viewBox units, so it scales with everything else: at
+> a 34px render a 1-unit stroke is about 1.4 CSS pixels, not 1. That keeps
+> the drawing identical, only bigger. Holding the stroke at an optical 1px
+> while the icon grows is possible — drop `strokeWidth` to roughly 0.7 —
+> but it makes the set read wiry rather than minimal.
 
 Retuning the whole set is a one-line edit in `js/config.js`.
 

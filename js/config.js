@@ -141,11 +141,13 @@ const CONFIG = {
    * in the game flips.
    */
   // `label` is no longer painted on the tab: it is the accessible name.
+  // Nothing has to fit in a button any more, so these are full words --
+  // a screen reader reads "Character", not "Char".
   // `iconId` names a <symbol> in the sprite at the top of index.html.
   tabs: [
-    { id: 'character', label: 'Char', iconId: 'icon-character', panelId: 'panel-character', unlocked: true },
+    { id: 'character', label: 'Character', iconId: 'icon-character', panelId: 'panel-character', unlocked: true },
     { id: 'skill', label: 'Skill', iconId: 'icon-skill', panelId: 'panel-skill', unlocked: true },
-    { id: 'inventory', label: 'Inv', iconId: 'icon-inventory', panelId: 'panel-inventory', unlocked: true },
+    { id: 'inventory', label: 'Inventory', iconId: 'icon-inventory', panelId: 'panel-inventory', unlocked: true },
     { id: 'hunt', label: 'Hunt', iconId: 'icon-hunt', panelId: 'panel-hunt', unlocked: false },
     { id: 'travel', label: 'Travel', iconId: 'icon-travel', panelId: 'panel-travel', unlocked: true },
     { id: 'settings', label: 'Settings', iconId: 'icon-settings', panelId: 'panel-settings', unlocked: true },
@@ -165,7 +167,11 @@ const CONFIG = {
    */
   icons: {
     strokeWidth: 1,
-    tabSizePx: 26,
+    // A share of the tab, not a pixel size: the tab is already square and
+    // already scales with the screen, so the icon tracks it instead of
+    // going proportionally smaller on a big phone and cramped on a small
+    // one. The rest is the breathing room around the icon.
+    tabIconScale: 0.62,
   },
 
   /* ---- UI text --------------------------------------------------------- */

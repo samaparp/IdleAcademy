@@ -6,9 +6,7 @@ tags:
 
 # Idle Academy
 
-Text-based idle game. Skilling, crafting and levelling. No artwork —
-the only drawn thing in the game is the monochrome line-icon set on the
-tab bar. See [[Icons]].
+Text-based idle game. Skilling, crafting and levelling.
 
 > [!abstract] The pillar
 > A character **pursuing careers**. Pick a path, master its skills, earn
@@ -47,11 +45,16 @@ tab bar. See [[Icons]].
 Six tabs today, **all six in a single row**, mobile-first:
 
 ```
-Char | Skill | Inv | Hunt | Travel | Settings
+Character | Skill | Inventory | Hunt | Travel | Settings
 ```
 
 Each tab is a **square** carrying **an icon and no text**. The names above
 are the tabs' accessible names, not painted labels — see [[Icons]].
+
+> [!note] The names are full words again
+> They were abbreviated to **Char** and **Inv** to fit a painted label.
+> Nothing is painted now, so the constraint is gone and a screen reader
+> gets the real word.
 
 > [!important] The square gives before the tap target does
 > Six squares plus their gaps do not fit at 48px on a 320px-wide phone. The
@@ -84,14 +87,14 @@ small text, one quest's progress, tapped to open the Labour Exchange. See
 
 > [!warning] Not implemented
 
-| Tab          | State    | Holds                                             |
-| ------------ | -------- | ------------------------------------------------- |
-| **Char**     | Open     | [[Character]] — Name                              |
-| **Skill**    | Open     | Skills by category. Only [[Research]] so far      |
-| **Inv**      | Open     | Empty                                             |
-| **Hunt**     | Locked   | Empty                                             |
-| **Travel**   | Open     | Locations — see [[Locations]]                     |
-| **Settings** | Open     | Test tools                                        |
+| Tab           | State  | Holds                                        |
+| ------------- | ------ | -------------------------------------------- |
+| **Character** | Open   | [[Character]] — Name                         |
+| **Skill**     | Open   | Skills by category. Only [[Research]] so far |
+| **Inventory** | Open   | Empty                                        |
+| **Hunt**      | Locked | Empty                                        |
+| **Travel**    | Open   | Locations — see [[Locations]]                |
+| **Settings**  | Open   | Test tools                                   |
 
 > [!important] A locked tab still shows itself
 > **Hunt** is locked but still shows its lantern and still announces as
