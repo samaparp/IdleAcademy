@@ -6,7 +6,9 @@ tags:
 
 # Idle Academy
 
-Text-based idle game. Skilling, crafting and levelling. No graphics.
+Text-based idle game. Skilling, crafting and levelling. No artwork —
+the only drawn thing in the game is the monochrome line-icon set on the
+tab bar. See [[Icons]].
 
 > [!abstract] The pillar
 > A character **pursuing careers**. Pick a path, master its skills, earn
@@ -38,15 +40,30 @@ Text-based idle game. Skilling, crafting and levelling. No graphics.
 - [[Quid]] — the currency. Earned mainly by selling, which is not yet
   designed.
 - [[Save System]] — how progress persists, and its limits.
+- [[Icons]] — the tab icon set, and the rules it is drawn against.
 
 ## Screen layout
 
-Six tabs today, three per row, mobile-first:
+Six tabs today, **all six in a single row**, mobile-first:
 
 ```
-Char  | Skill  | Inv
-Hunt  | Travel | Settings
+Char | Skill | Inv | Hunt | Travel | Settings
 ```
+
+Each tab is a **square** carrying **an icon and no text**. The names above
+are the tabs' accessible names, not painted labels — see [[Icons]].
+
+> [!important] The square gives before the tap target does
+> Six squares plus their gaps do not fit at 48px on a 320px-wide phone. The
+> tab keeps a 48px minimum height and goes slightly taller than wide there.
+> Losing the square beats losing the tap target.
+
+> [!note] The label survives as the accessible name
+> Dropping the text means every tab would otherwise announce as an unnamed
+> button, so `label` in `CONFIG.tabs` becomes each button's `aria-label`. A
+> locked tab still appends its suffix. This is the opposite of the
+> notification dot, which is deliberately silent — the difference is that a
+> dot is an alert, and a tab is a destination.
 
 > [!info] The Labour Exchange does not get a tab
 > It is a **location page** reached through Travel, with a **quest
@@ -76,9 +93,10 @@ small text, one quest's progress, tapped to open the Labour Exchange. See
 | **Travel**   | Open     | Locations — see [[Locations]]                     |
 | **Settings** | Open     | Test tools                                        |
 
-> [!important] A locked tab still shows its name
-> **Hunt** is locked but reads "Hunt", not `???`. The player is meant to
-> know a hunt exists and is not yet available. This is the opposite of a
+> [!important] A locked tab still shows itself
+> **Hunt** is locked but still shows its lantern and still announces as
+> "Hunt", rather than hiding behind `???`. The player is meant to know a
+> hunt exists and is not yet available. This is the opposite of a
 > locked skill, which hides its name — the difference is deliberate:
 > a section is a promise, a skill is a surprise.
 >
@@ -161,6 +179,8 @@ size of a category is never hidden.
 - All tuning values live in `js/config.js`. Design notes describe intent;
   `js/config.js` holds the authoritative numbers.
 - Mobile-first: the game is played on a phone.
+- Icons are inline SVG taking their colour from the theme, so light and
+  dark need no icon work. See [[Icons]].
 - Offline progress is part of the design: both income streams accrue while
   the game is closed, capped at 24 hours, collected by tapping. See
   [[Core Loop]]. Not implemented yet.

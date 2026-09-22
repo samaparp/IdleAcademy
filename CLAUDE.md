@@ -1,11 +1,12 @@
 # Idle Academy — project rules
 
 Text-based idle game: a Victorian monster hunter who studies his quarry.
-Skilling, crafting, levelling. No graphics.
+Skilling, crafting, levelling. No artwork — the one drawn thing is the
+monochrome line-icon set on the tab bar, see `design/Icons.md`.
 
 > **The pillar.** The game represents **a character pursuing careers**.
 > The player picks a path, masters skills, and takes the titles that go
-> with them. It is **idle** and **minimal** throughout — no graphics, no
+> with them. It is **idle** and **minimal** throughout — no artwork, no
 > busywork, no mechanic that demands attention rather than earning it.
 > When a design choice is unclear, the one that keeps it idle and minimal
 > is usually right.
@@ -36,6 +37,9 @@ Skilling, crafting, levelling. No graphics.
 	- Tap targets at least 48px tall.
 	- Body text at least 16px (prevents mobile zoom-on-focus).
 	- Light **and** dark mode via `prefers-color-scheme`.
+	- **Icons** are inline SVG on a shared grid, `currentColor` only, with
+	  the stroke weight and size in `CONFIG`. The rules every icon is drawn
+	  against live in `design/Icons.md` — read it before adding one.
 	- **Notification dots**: a small filled circle in the top-right corner
 	  of a button, for anything needing attention. A shared pattern, not a
 	  one-off. It carries **no text equivalent** — that is the designer's

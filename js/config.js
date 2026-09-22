@@ -140,15 +140,33 @@ const CONFIG = {
    * UNLOCK RULES ARE NOT DESIGNED: `unlocked` is a static flag that nothing
    * in the game flips.
    */
+  // `label` is no longer painted on the tab: it is the accessible name.
+  // `iconId` names a <symbol> in the sprite at the top of index.html.
   tabs: [
-    { id: 'character', label: 'Char', panelId: 'panel-character', unlocked: true },
-    { id: 'skill', label: 'Skill', panelId: 'panel-skill', unlocked: true },
-    { id: 'inventory', label: 'Inv', panelId: 'panel-inventory', unlocked: true },
-    { id: 'hunt', label: 'Hunt', panelId: 'panel-hunt', unlocked: false },
-    { id: 'travel', label: 'Travel', panelId: 'panel-travel', unlocked: true },
-    { id: 'settings', label: 'Settings', panelId: 'panel-settings', unlocked: true },
+    { id: 'character', label: 'Char', iconId: 'icon-character', panelId: 'panel-character', unlocked: true },
+    { id: 'skill', label: 'Skill', iconId: 'icon-skill', panelId: 'panel-skill', unlocked: true },
+    { id: 'inventory', label: 'Inv', iconId: 'icon-inventory', panelId: 'panel-inventory', unlocked: true },
+    { id: 'hunt', label: 'Hunt', iconId: 'icon-hunt', panelId: 'panel-hunt', unlocked: false },
+    { id: 'travel', label: 'Travel', iconId: 'icon-travel', panelId: 'panel-travel', unlocked: true },
+    { id: 'settings', label: 'Settings', iconId: 'icon-settings', panelId: 'panel-settings', unlocked: true },
   ],
   defaultTabId: 'skill',
+
+  /* ---- Icons ----------------------------------------------------------- */
+  /*
+   * The icon set is one monochrome line system; see design/Icons.md. These
+   * values are pushed onto the root element as custom properties at boot,
+   * so the whole set retunes from here rather than from the stylesheet.
+   *
+   * strokeWidth is in viewBox units, and the viewBox is 24, so at a 24px
+   * render 1 unit is 1 CSS pixel. Below 1 a stroke cannot land on a whole
+   * device pixel on a 1x display and renders as a grey smear, so 1 is the
+   * floor rather than a preference.
+   */
+  icons: {
+    strokeWidth: 1,
+    tabSizePx: 26,
+  },
 
   /* ---- UI text --------------------------------------------------------- */
   ui: {

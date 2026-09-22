@@ -102,6 +102,8 @@ anything**. Every `unlocked` flag is static config.
 	playtesting.
 - [ ] Whether anything **other than the Hunt tab** raises a notification
 	dot.
+- [ ] **Does anything other than the tab bar get an icon?** Resources,
+	skills and locations are all text today. See [[Icons]].
 
 ## 7. Tuning
 

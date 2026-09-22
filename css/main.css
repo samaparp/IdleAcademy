@@ -89,26 +89,65 @@ body {
 
 /* ---- Tabs ------------------------------------------------------------- */
 
+/*
+ * Six tabs in one row, each a square. The label is no longer painted --
+ * the icon carries it, and the label survives as the button's aria-label.
+ */
 .tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 6px;
   max-width: 560px;
   margin: 0 auto;
 }
 
 .tab {
+  /*
+   * Square by preference, tappable by rule. Six squares plus five gaps do
+   * not fit above 48px on a 320px-wide phone, so min-height wins there and
+   * the tab goes slightly taller than wide. Losing the square beats losing
+   * the tap target.
+   */
+  aspect-ratio: 1;
   min-height: 48px;
-  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--surface);
   color: var(--text-muted);
   font: inherit;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
   touch-action: manipulation;
+}
+
+/*
+ * The sprite itself is never painted; only its symbols are, through <use>.
+ * Kept in flow at zero size rather than display:none, which would stop
+ * some browsers resolving the references.
+ */
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/*
+ * Size and stroke come from CONFIG via custom properties set at boot; the
+ * fallbacks here only matter if a stylesheet loads without the scripts.
+ */
+.tab__icon {
+  width: var(--tab-icon-size, 26px);
+  height: var(--tab-icon-size, 26px);
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--icon-stroke, 1);
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .tab.is-selected {

@@ -32,6 +32,7 @@ const UI = {
 
     this.el.nameInput.maxLength = CONFIG.character.maxNameLength;
 
+    this.applyIconTuning();
     this.buildTabs();
     this.buildSkillList();
     this.bindName();
@@ -42,12 +43,28 @@ const UI = {
     this.render();
   },
 
+  /* ---- Icons ----------------------------------------------------------- */
+
+  /*
+   * CSS cannot read CONFIG, so the icon tuning values are pushed onto the
+   * root element as custom properties. The stylesheet carries fallbacks for
+   * the same values; these are what actually take effect.
+   */
+  applyIconTuning() {
+    const root = document.documentElement;
+    root.style.setProperty('--icon-stroke', String(CONFIG.icons.strokeWidth));
+    root.style.setProperty('--tab-icon-size', CONFIG.icons.tabSizePx + 'px');
+  },
+
   /* ---- Tabs ------------------------------------------------------------ */
 
   /*
-   * Tabs are built from CONFIG.tabs, three per row. A locked tab keeps its
-   * real label — the player is meant to know the section exists — but is
-   * disabled, so it cannot be opened or focused.
+   * Tabs are built from CONFIG.tabs, all six in one row. Each is an icon
+   * only: the label is not painted, so it has to become the button's
+   * aria-label or the tab would announce as an unnamed button.
+   *
+   * A locked tab still carries its real name — the player is meant to know
+   * the section exists — but is disabled, so it cannot be opened or focused.
    */
   buildTabs() {
     for (const tab of CONFIG.tabs) {
@@ -55,13 +72,16 @@ const UI = {
       button.type = 'button';
       button.className = 'tab';
       button.id = 'tab-' + tab.id;
-      button.textContent = tab.label;
+      button.innerHTML =
+        '<svg class="tab__icon" aria-hidden="true" focusable="false">' +
+        '<use href="#' + tab.iconId + '"></use></svg>';
       button.setAttribute('role', 'tab');
       button.setAttribute('aria-controls', tab.panelId);
       button.setAttribute('aria-selected', 'false');
       button.tabIndex = -1;
 
       if (tab.unlocked) {
+        button.setAttribute('aria-label', tab.label);
         button.addEventListener('click', () => this.selectTab(tab.id));
         button.addEventListener('keydown', (event) => this.onTabKey(event, tab.id));
       } else {
