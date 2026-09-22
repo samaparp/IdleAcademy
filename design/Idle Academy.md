@@ -39,6 +39,7 @@ Text-based idle game. Skilling, crafting and levelling.
   designed.
 - [[Save System]] — how progress persists, and its limits.
 - [[Icons]] — the tab icon set, and the rules it is drawn against.
+- [[Settings]] — the Settings tab: the theme control, and test tools.
 
 ## Screen layout
 
@@ -94,7 +95,7 @@ small text, one quest's progress, tapped to open the Labour Exchange. See
 | **Inventory** | Open   | Empty                                        |
 | **Hunt**      | Locked | Empty                                        |
 | **Travel**    | Open   | Locations — see [[Locations]]                |
-| **Settings**  | Open   | Test tools                                   |
+| **Settings**  | Open   | Theme, then Test tools — see [[Settings]]    |
 
 > [!important] A locked tab still shows itself
 > **Hunt** is locked but still shows its lantern and still announces as

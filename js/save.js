@@ -88,6 +88,18 @@ const Save = {
       version = 4;
     }
 
+    // v4 -> v5: the player gained a theme setting. Existing players keep
+    // the behaviour they already had, which is following the system.
+    if (version < 5) {
+      if (!parsed.settings || typeof parsed.settings !== 'object') {
+        parsed.settings = {};
+      }
+      if (typeof parsed.settings.theme !== 'string') {
+        parsed.settings.theme = CONFIG.theme.default;
+      }
+      version = 5;
+    }
+
     parsed.version = version;
 
     if (version > CONFIG.save.version) {

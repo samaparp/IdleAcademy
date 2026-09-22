@@ -87,11 +87,18 @@ Six, one per tab. See [[Idle Academy]] for the tab bar itself.
 | **Settings** | Three sliders                           |
 
 > [!note] The lantern was the hard one
-> It was drawn twice. A narrow body carried visibly less ink than the
-> satchel and the compass beside it, so the whole row looked uneven; the
-> interior detail also turned to mush at tab size. Widened, and the flame
-> enlarged to a single clear diamond. **An icon that needs more detail than
-> its neighbours to read is the wrong drawing, not a case for more detail.**
+> It has been drawn three times. First pass: a narrow body carried visibly
+> less ink than the satchel and the compass beside it, so the whole row
+> looked uneven, and the interior detail turned to mush at tab size.
+> Widened, and the flame enlarged to a single clear diamond. Third pass:
+> taller overall, with a **deeper base section** — the gap between the body
+> and the foot was too shallow to read as a lantern's base.
+>
+> **An icon that needs more detail than its neighbours to read is the wrong
+> drawing, not a case for more detail.**
+>
+> The first two passes also broke the live-area rule: the handle's arc
+> reached y = 1.5, half a unit outside it. Fixed in the third.
 
 ## Open
 

@@ -51,6 +51,9 @@ const Game = {
     Engine.resetTiming();
     UI.cache = {};
     UI.setActionState(false);
+    // A reset returns the theme to the default along with everything else.
+    UI.applyTheme();
+    UI.updateThemeButtons();
     UI.render();
     Save.save(State.current);
   },

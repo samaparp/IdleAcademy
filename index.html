@@ -4,10 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#14151a" media="(prefers-color-scheme: dark)">
+  <!--
+    One theme-color, kept in step with the theme by ui.js, which reads the
+    live value of --bg. Media-scoped tags cannot work here: the player can
+    force a theme that disagrees with the system.
+    The light value is the no-script fallback.
+  -->
+  <meta name="theme-color" content="#f5f3ef" id="theme-color">
   <title>Idle Academy</title>
   <link rel="stylesheet" href="css/main.css">
+
+  <!--
+    Config loads here rather than with the other scripts so the inline block
+    below can use it. It declares a const and touches no DOM, so it is safe
+    this early.
+  -->
+  <script src="js/config.js"></script>
+  <script>
+    /*
+     * Applies a forced theme BEFORE the body paints. Without it the page
+     * renders in the system theme and then flips, which is visible on every
+     * single load. That is why this duplicates a little of save.js rather
+     * than waiting for the normal boot.
+     *
+     * Silent on any failure: a missing or corrupt save just means auto.
+     */
+    try {
+      var saved = JSON.parse(localStorage.getItem(CONFIG.save.storageKey) || '{}');
+      var theme = saved && saved.settings && saved.settings.theme;
+      if (theme && theme !== 'auto') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    } catch (err) {
+      /* No save, no storage, or unparsable: auto is the right answer. */
+    }
+  </script>
 </head>
 <body>
   <!--
@@ -32,13 +63,13 @@
       <path d="M9 9 V6.5 A3 3 0 0 1 15 6.5 V9"/>
     </symbol>
     <symbol id="icon-hunt" viewBox="0 0 24 24">
-      <path d="M9.5 5 V4 A2.5 2.5 0 0 1 14.5 4 V5"/>
-      <path d="M5.5 5 H18.5"/>
-      <path d="M7 5 V17"/>
-      <path d="M17 5 V17"/>
-      <path d="M5.5 17 H18.5"/>
-      <path d="M7 19.5 H17"/>
-      <path d="M12 8.8 L14 11.8 L12 14.8 L10 11.8 Z"/>
+      <path d="M9.5 5.5 V4.5 A2.5 2.5 0 0 1 14.5 4.5 V5.5"/>
+      <path d="M5.5 5.5 H18.5"/>
+      <path d="M7 5.5 V17.5"/>
+      <path d="M17 5.5 V17.5"/>
+      <path d="M5.5 17.5 H18.5"/>
+      <path d="M7 21 H17"/>
+      <path d="M12 8.5 L14 11.5 L12 14.5 L10 11.5 Z"/>
     </symbol>
     <symbol id="icon-travel" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="8"/>
@@ -118,6 +149,13 @@
     <!-- Settings: test tools live here for now. -->
     <section class="panel" id="panel-settings" role="tabpanel"
              aria-labelledby="tab-settings" tabindex="0" hidden>
+      <!-- A player setting, not a test tool, so it sits outside them. -->
+      <section class="card setting">
+        <span class="setting__label" id="theme-label">Theme</span>
+        <div class="setting__buttons" id="theme-buttons"
+             role="group" aria-labelledby="theme-label"></div>
+      </section>
+
       <details class="card tools">
         <summary class="tools__summary">Test tools</summary>
         <div class="tools__body">
@@ -134,7 +172,7 @@
   </main>
 
   <!-- Load order matters: config -> maths -> state -> save -> skills -> engine -> ui -> boot -->
-  <script src="js/config.js"></script>
+  <!-- config.js is already loaded in <head>. -->
   <script src="js/leveling.js"></script>
   <script src="js/state.js"></script>
   <script src="js/save.js"></script>

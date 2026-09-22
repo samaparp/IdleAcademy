@@ -18,7 +18,7 @@ const CONFIG = {
   /* ---- Save system ----------------------------------------------------- */
   save: {
     storageKey: 'idleacademy.save',
-    version: 4,
+    version: 5,
     autosaveMs: 5000,
   },
 
@@ -172,6 +172,21 @@ const CONFIG = {
     // going proportionally smaller on a big phone and cramped on a small
     // one. The rest is the breathing room around the icon.
     tabIconScale: 0.62,
+  },
+
+  /* ---- Theme ----------------------------------------------------------- */
+  /*
+   * 'auto' follows the system's prefers-color-scheme; the other two force
+   * it. The id is what the save stores and what lands in the root element's
+   * data-theme attribute, so renaming one needs a save migration.
+   */
+  theme: {
+    options: [
+      { id: 'auto', label: 'Auto' },
+      { id: 'light', label: 'Light' },
+      { id: 'dark', label: 'Dark' },
+    ],
+    default: 'auto',
   },
 
   /* ---- UI text --------------------------------------------------------- */

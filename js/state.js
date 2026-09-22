@@ -11,6 +11,7 @@ const State = {
       version: CONFIG.save.version,
       lastPlayed: Date.now(),
       character: { name: CONFIG.character.defaultName },
+      settings: { theme: CONFIG.theme.default },
       resources: {},
       skills: {},
     };
@@ -39,6 +40,12 @@ const State = {
 
     if (state.character && typeof state.character.name === 'string') {
       out.character.name = this.cleanName(state.character.name);
+    }
+
+    // An unknown theme id falls back to the default rather than leaving a
+    // value in the save that no button can ever match.
+    if (state.settings && this.isKnownTheme(state.settings.theme)) {
+      out.settings.theme = state.settings.theme;
     }
 
     if (state.resources) {
@@ -77,6 +84,19 @@ const State = {
   cleanName(name) {
     const trimmed = String(name).trim().slice(0, CONFIG.character.maxNameLength);
     return trimmed || CONFIG.character.defaultName;
+  },
+
+  isKnownTheme(id) {
+    return CONFIG.theme.options.some((option) => option.id === id);
+  },
+
+  setTheme(id) {
+    if (!this.isKnownTheme(id)) return;
+    this.current.settings.theme = id;
+  },
+
+  getTheme() {
+    return this.current.settings.theme;
   },
 
   setName(name) {

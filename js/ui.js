@@ -25,6 +25,8 @@ const UI = {
       nameEditButton: document.getElementById('name-edit-button'),
       nameSaveButton: document.getElementById('name-save-button'),
       nameCancelButton: document.getElementById('name-cancel-button'),
+      themeButtons: document.getElementById('theme-buttons'),
+      themeColor: document.getElementById('theme-color'),
       speedButtons: document.getElementById('speed-buttons'),
       resetButton: document.getElementById('reset-button'),
       saveNotice: document.getElementById('save-notice'),
@@ -34,6 +36,7 @@ const UI = {
 
     this.applyIconTuning();
     this.buildTabs();
+    this.buildThemeButtons();
     this.buildSkillList();
     this.bindName();
     this.buildSpeedButtons();
@@ -54,6 +57,72 @@ const UI = {
     const root = document.documentElement;
     root.style.setProperty('--icon-stroke', String(CONFIG.icons.strokeWidth));
     root.style.setProperty('--tab-icon-scale', CONFIG.icons.tabIconScale * 100 + '%');
+  },
+
+  /* ---- Theme ----------------------------------------------------------- */
+
+  /*
+   * 'auto' removes the attribute entirely and lets prefers-color-scheme
+   * decide; anything else forces it. The matching selectors live in
+   * css/main.css.
+   *
+   * index.html applies the saved theme inline before the body paints, so
+   * this call at boot is usually re-stating what is already set. It still
+   * has to run: it is what updates the theme-color tag, and what applies
+   * the change when the player taps a different option.
+   */
+  applyTheme() {
+    const theme = State.getTheme();
+    const root = document.documentElement;
+
+    if (theme === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', theme);
+
+    this.updateThemeColor();
+  },
+
+  /*
+   * Reads the background back out of the stylesheet rather than keeping a
+   * second copy of the hex values here. Whatever the theme resolved to,
+   * including the system's choice under 'auto', is what the tag gets.
+   */
+  updateThemeColor() {
+    if (!this.el.themeColor) return;
+    const bg = getComputedStyle(document.documentElement)
+      .getPropertyValue('--bg')
+      .trim();
+    if (bg) this.el.themeColor.setAttribute('content', bg);
+  },
+
+  buildThemeButtons() {
+    for (const option of CONFIG.theme.options) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'choice-button';
+      button.textContent = option.label;
+      button.dataset.theme = option.id;
+      button.addEventListener('click', () => {
+        State.setTheme(option.id);
+        this.applyTheme();
+        this.updateThemeButtons();
+        // Banked immediately: a theme the player picked and then lost to a
+        // closed tab before the next autosave would look broken.
+        Save.save(State.current);
+      });
+      this.el.themeButtons.appendChild(button);
+    }
+
+    this.applyTheme();
+    this.updateThemeButtons();
+  },
+
+  updateThemeButtons() {
+    const theme = State.getTheme();
+    for (const button of this.el.themeButtons.children) {
+      const selected = button.dataset.theme === theme;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    }
   },
 
   /* ---- Tabs ------------------------------------------------------------ */
@@ -263,7 +332,7 @@ const UI = {
     for (const speed of CONFIG.testTools.speeds) {
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'speed-button';
+      button.className = 'choice-button';
       button.textContent = '×' + speed;
       button.dataset.speed = String(speed);
       button.addEventListener('click', () => {

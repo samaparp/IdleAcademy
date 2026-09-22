@@ -97,7 +97,8 @@ anything**. Every `unlocked` flag is static config.
 - [ ] **What the quest tracker shows when no quest is active** — hidden,
 	or a prompt.
 - [ ] **Where the save export buttons live** — Test tools, or somewhere a
-	normal player would find them.
+	normal player would find them. [[Settings]] now has a place for real
+	player settings, which makes this answerable.
 - [ ] **Which tabs earn their place.** Deferred deliberately until after
 	playtesting.
 - [ ] Whether anything **other than the Hunt tab** raises a notification

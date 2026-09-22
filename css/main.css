@@ -23,8 +23,15 @@
   --gap: 16px;
 }
 
+/*
+ * Dark comes from two places: the system asking for it, or the player
+ * forcing it in Settings. The token block is written twice because one copy
+ * has to sit inside a media query and the other cannot — edit both.
+ *
+ * The :not() guard is what lets a player force light on a dark phone.
+ */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #14151a;
     --surface: #1e2026;
     --surface-alt: #282b33;
@@ -38,6 +45,27 @@
     --danger: #f2837c;
   }
 }
+
+:root[data-theme="dark"] {
+  --bg: #14151a;
+  --surface: #1e2026;
+  --surface-alt: #282b33;
+  --text: #edeef2;
+  --text-muted: #a3a6b0;
+  --border: #343843;
+  --accent: #8f83f5;
+  --accent-text: #14151a;
+  --accent-soft: #2f2a55;
+  --active: #43c98a;
+  --danger: #f2837c;
+}
+
+/*
+ * Keeps form controls, scrollbars and the like in step with a forced theme.
+ * Left alone on auto, where the meta tag in index.html already says both.
+ */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
 
 * { box-sizing: border-box; }
 
@@ -516,7 +544,25 @@ body {
 
 .tools__buttons { display: flex; gap: 8px; flex: 1; }
 
-.speed-button {
+/* ---- Settings ---------------------------------------------------------- */
+
+.setting {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: var(--gap);
+}
+
+.setting__label { color: var(--text-muted); }
+
+.setting__buttons { display: flex; gap: 8px; flex: 1; }
+
+/*
+ * One segmented control, used by both the theme picker and the test-tool
+ * speeds. A shared pattern rather than a class per row.
+ */
+.choice-button {
   flex: 1;
   min-height: 48px;
   min-width: 64px;
@@ -530,7 +576,7 @@ body {
   touch-action: manipulation;
 }
 
-.speed-button.is-selected {
+.choice-button.is-selected {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-text);
