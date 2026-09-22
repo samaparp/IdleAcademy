@@ -33,9 +33,8 @@ built without them.
 - [ ] **What the Penny-a-liner title buffs.**
 - [ ] **What is the first tool, what does it cost, and what does it
 	unlock?** The chain says a pickaxe.
-- [ ] **Where is the mine, and how is it revealed?** The world puts
-	extraction in Arjunia, whose famous lode is exhausted and which is
-	three days from Stennard. See [[Geography]].
+- [ ] **How is the mine revealed?** Its location is settled — Arjunia,
+	near but outside Rupina. What puts it on the map is not.
 - [ ] **What exactly unlocks Mining** — tool equipped, mine revealed, or
 	both.
 - [ ] **Must a tool stay equipped** to keep its skill working, or is

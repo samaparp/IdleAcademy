@@ -27,7 +27,7 @@ to place things. Everything here is **canon and fixed**.
 
 | Region              | House    | Naming layer | Character                     |
 | ------------------- | -------- | ------------ | ----------------------------- |
-| **West, south, coast** | Indra | Germanic     | Industrial, commercial, **manufacturing**. Coal |
+| **West, south, coast** | Indra | Germanic     | Industrial, commercial, **manufacturing**. Coal. Holds [[Stennard]], in its **south** |
 | **Arjunia** (duchy) | Vijindra | Indic        | Aristocratic. **Extraction and primary metalworking** |
 | **Frontier** (north)| —        | Welsh        | Rural, thinly settled, poor in institutions |
 
@@ -42,7 +42,7 @@ to place things. Everything here is **canon and fixed**.
 
 | Place           | Region   | What it is                              |
 | --------------- | -------- | --------------------------------------- |
-| **[[Stennard]]**| West     | **Capital.** House Indra. Holds The Still Watch |
+| **[[Stennard]]**| **South** | **Capital.** House Indra. Holds The Still Watch |
 | **Rupina**      | Arjunia  | Capital of Arjunia. Second city          |
 | **Aldbury**     | West     | Third city. Freight, yards, transhipment |
 | **Hovell**      | West     | Town at the mouth of the U. Everything to Arjunia passes through |
@@ -96,29 +96,24 @@ Distances are fixed in the world bible. The ones that matter here:
 
 ## What this means for the game
 
-> [!question] Where is the mine?
-> [[Opening]] needs a mine reachable early. The world says **extraction is
-> Arjunia's** — and the famous lode in the **Silver Peaks is exhausted**,
-> with the owners' mansions standing empty above it.
+> [!info] The mine: Arjunia, near but outside Rupina
+> Decided. It sits with the works at the mountain foot, which the world
+> already describes — foundries "out at the mountain foot with their own
+> works and their own line, kilometres from anywhere anyone lives", and
+> Rupina's own works "several km off".
 >
-> That is either a gift or a problem:
-> - **A gift.** An exhausted lode is exactly where a penny-a-liner with one
->   pickaxe would be allowed to work. Poor yields, nobody competing,
->   supposedly haunted, and it explains why a scholar can simply turn up.
-> - **A problem.** Rupina is **1,144 km and three days** from Stennard, at
->   the far end of the West line. That is a long way for the second thing
->   the player ever does.
+> It is **not** the Silver Peaks lode. That one is **silver and exhausted**,
+> with the owners' mansions empty above it. Arjunia's extraction industry
+> is alive; only that lode ran dry. The two do not conflict, and the
+> exhausted lode stays available as a later hook.
 >
-> The alternatives are inventing nothing and using a **frontier** location
-> — but the world gives the frontier no mining — or placing a working
-> outside Stennard, which the directive allows only if it is a farm,
-> wood or lane rather than a named mine town.
+> This also fits the economy the world describes: **Arjunia extracts and
+> refines, the south manufactures.** The player digs in Arjunia and builds
+> at home in [[Stennard]].
 
-> [!question] Free travel vs fixed journey times
-> The game currently says **travel is free and instant** — Travel is a
-> menu. The world bible fixes distances and durations: three days to
-> Rupina, a single overnight to Terfyn.
->
-> These do not have to agree. The times are a **narration** reference and
-> the game is a menu. But if travel ever costs time or money, the numbers
-> are already written and should be used rather than invented.
+> [!info] There is no travel time
+> Decided: travel is instant and free. The world bible's distances and
+> journey times stand as **narration reference** — three days to Rupina,
+> an overnight to Terfyn — and the game does not model them. If travel
+> ever acquires a cost, those numbers already exist and should be used
+> rather than invented.

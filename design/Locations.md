@@ -48,7 +48,7 @@ grounds, or both.
 | ------------- | ------------- | ------------------------------ | --------- |
 | [[Apartment]] | Stennard      | The player's room. **Sub-location, and has its own tab** | **Unlocked by default** |
 | [[Stennard]]  | Stennard      | Market, workshop, Labour Exchange, apothecary | **Unlocked by default** |
-| The mine      | **Undecided** | Mining                         | Unrevealed. **On the critical path** — see [[Opening]] and the note in [[Geography]] |
+| The mine      | **Arjunia**, near but outside Rupina | Mining — copper | Unrevealed. **On the critical path** — see [[Opening]] |
 
 ## Travel
 
@@ -84,6 +84,10 @@ grounds, or both.
 > flip it. `Skills.isUnlocked()` is the seam that rule goes through, and
 > it will need to read **state** — the revealed-locations list — rather
 > than config alone.
+
+> [!info] Travel has no cost
+> Instant and free, deliberately. See [[Geography]] for the world's real
+> distances, which the game does not model.
 
 > [!question] How is the mine revealed?
 > [[Opening]] has the player travel there in the first few minutes, but
