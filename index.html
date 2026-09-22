@@ -22,21 +22,30 @@
   <script src="js/config.js"></script>
   <script>
     /*
-     * Applies a forced theme BEFORE the body paints. Without it the page
-     * renders in the system theme and then flips, which is visible on every
-     * single load. That is why this duplicates a little of save.js rather
-     * than waiting for the normal boot.
+     * Resolves the theme BEFORE the body paints. Without it the page renders
+     * one way and then flips, which is visible on every single load. That is
+     * why this duplicates a little of save.js rather than waiting for boot.
+     *
+     * "auto" is resolved to a concrete light or dark HERE rather than being
+     * left to a CSS media query, so the stylesheet needs only one copy of
+     * each palette. data-theme is always set to one or the other.
      *
      * Silent on any failure: a missing or corrupt save just means auto.
      */
     try {
-      var saved = JSON.parse(localStorage.getItem(CONFIG.save.storageKey) || '{}');
-      var theme = saved && saved.settings && saved.settings.theme;
-      if (theme && theme !== 'auto') {
-        document.documentElement.setAttribute('data-theme', theme);
+      var theme = 'auto';
+      try {
+        var saved = JSON.parse(localStorage.getItem(CONFIG.save.storageKey) || '{}');
+        if (saved && saved.settings && saved.settings.theme) theme = saved.settings.theme;
+      } catch (err) {
+        /* No save, no storage, or unparsable: auto is the right answer. */
       }
+      if (theme === 'auto') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
     } catch (err) {
-      /* No save, no storage, or unparsable: auto is the right answer. */
+      /* matchMedia missing: the light palette on :root is already correct. */
     }
   </script>
 </head>

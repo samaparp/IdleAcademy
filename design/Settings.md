@@ -32,16 +32,28 @@ a closed tab would look broken.
 
 ### How it is applied
 
-The theme id lands in `data-theme` on the root element. `css/main.css`
-carries the dark tokens twice: once inside the `prefers-color-scheme`
-media query, guarded so a forced light wins, and once for a forced dark.
-Editing one copy means editing the other.
+The theme id lands in `data-theme` on the root element — and it is
+**always** `light` or `dark`, never absent.
+
+> [!important] Auto is resolved in JavaScript, not by a media query
+> "Auto" is a real third state in the save, but it is turned into a
+> concrete light or dark **before it reaches CSS**. That is what lets
+> `css/main.css` hold **one copy of each palette**.
+>
+> The alternative — letting a `prefers-color-scheme` query handle auto —
+> forces the dark values to be written twice, once for the query and once
+> for a forced dark, and the two copies drift apart the first time a
+> colour is tweaked.
+>
+> Because the media query no longer does it for free, `js/ui.js` listens
+> for system changes and re-resolves while the setting is auto, so a phone
+> flipping to dark at sunset still works.
 
 > [!important] It is applied before the body paints
-> `index.html` reads the saved theme in an inline script in the head and
-> sets the attribute there. Without it the page renders in the system theme
-> and then flips on every single load. This is why `js/config.js` loads in
-> the head rather than with the other scripts.
+> `index.html` resolves and sets the attribute in an inline script in the
+> head. Without it the page renders one way and then flips on every single
+> load. This is why `js/config.js` loads in the head rather than with the
+> other scripts.
 
 > [!note] The address bar follows too
 > There is one `theme-color` tag, and `js/ui.js` sets it from the live
@@ -49,6 +61,11 @@ Editing one copy means editing the other.
 > work once the player can force a theme the phone disagrees with, and
 > reading the value back out of the stylesheet avoids keeping a second copy
 > of the palette in JavaScript.
+
+> [!note] If scripts never load
+> The page falls back to the light palette on `:root` rather than following
+> the system. The whole game is JavaScript, so this is not a case worth
+> designing around.
 
 ## Test tools
 

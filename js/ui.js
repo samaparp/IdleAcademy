@@ -62,23 +62,44 @@ const UI = {
   /* ---- Theme ----------------------------------------------------------- */
 
   /*
-   * 'auto' removes the attribute entirely and lets prefers-color-scheme
-   * decide; anything else forces it. The matching selectors live in
-   * css/main.css.
+   * The saved theme is one of three: auto, light, dark. The ATTRIBUTE is
+   * only ever light or dark — 'auto' is resolved against the system here,
+   * so css/main.css needs exactly one copy of each palette instead of a
+   * second dark block for the forced case.
    *
-   * index.html applies the saved theme inline before the body paints, so
-   * this call at boot is usually re-stating what is already set. It still
-   * has to run: it is what updates the theme-color tag, and what applies
-   * the change when the player taps a different option.
+   * index.html does the same resolution inline before the body paints, so
+   * this call at boot usually re-states what is already set. It still has
+   * to run: it updates the theme-color tag, and it is what applies a
+   * change when the player taps a different option.
    */
   applyTheme() {
     const theme = State.getTheme();
-    const root = document.documentElement;
+    const resolved = theme === 'auto' ? this.systemTheme() : theme;
 
-    if (theme === 'auto') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', theme);
-
+    document.documentElement.setAttribute('data-theme', resolved);
     this.updateThemeColor();
+  },
+
+  systemTheme() {
+    return window.matchMedia
+      && window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  },
+
+  /*
+   * On 'auto' the system can change under us — a phone flipping to dark at
+   * sunset. The CSS media query used to handle that for free; now that the
+   * resolution happens here, it has to be watched for explicitly.
+   */
+  watchSystemTheme() {
+    if (!window.matchMedia) return;
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => {
+      if (State.getTheme() === 'auto') this.applyTheme();
+    };
+    if (query.addEventListener) query.addEventListener('change', onChange);
+    else query.addListener(onChange);  // Safari < 14
   },
 
   /*
@@ -113,6 +134,7 @@ const UI = {
     }
 
     this.applyTheme();
+    this.watchSystemTheme();
     this.updateThemeButtons();
   },
 

@@ -1,12 +1,16 @@
 @charset "UTF-8";
 
 /*
- * main.css — mobile-first. Light and dark via prefers-color-scheme.
+ * main.css — mobile-first. Light and dark palettes, each defined once.
+ * The theme is always an explicit data-theme on the root element; see the
+ * dark block below for why there is no prefers-color-scheme query.
  * Tap targets are at least 48px tall; body text is at least 16px so
  * mobile browsers never zoom on focus.
  */
 
 :root {
+  color-scheme: light;
+
   --bg: #f5f3ef;
   --surface: #ffffff;
   --surface-alt: #eceae4;
@@ -30,23 +34,19 @@
  *
  * The :not() guard is what lets a player force light on a dark phone.
  */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14151a;
-    --surface: #1e2026;
-    --surface-alt: #282b33;
-    --text: #edeef2;
-    --text-muted: #a3a6b0;
-    --border: #343843;
-    --accent: #8f83f5;
-    --accent-text: #14151a;
-    --accent-soft: #2f2a55;
-    --active: #43c98a;
-    --danger: #f2837c;
-  }
-}
-
+/*
+ * The dark palette, written once.
+ *
+ * There is deliberately no prefers-color-scheme query here. "Auto" is
+ * resolved in JavaScript — index.html and js/ui.js turn it into a concrete
+ * light or dark before it reaches CSS — so data-theme is ALWAYS set to one
+ * or the other. That keeps each palette in exactly one place; a media
+ * query would mean writing the dark values a second time for the forced
+ * case, and the two copies drifting apart.
+ */
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   --bg: #14151a;
   --surface: #1e2026;
   --surface-alt: #282b33;
@@ -59,13 +59,6 @@
   --active: #43c98a;
   --danger: #f2837c;
 }
-
-/*
- * Keeps form controls, scrollbars and the like in step with a forced theme.
- * Left alone on auto, where the meta tag in index.html already says both.
- */
-:root[data-theme="light"] { color-scheme: light; }
-:root[data-theme="dark"] { color-scheme: dark; }
 
 * { box-sizing: border-box; }
 
